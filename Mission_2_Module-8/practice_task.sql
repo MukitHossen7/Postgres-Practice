@@ -17,3 +17,7 @@ ALTER TABLE students ADD COLUMN email VARCHAR(100)
 
 -- 2.Rename the column email to student_email
 ALTER TABLE students RENAME COLUMN email To student_email
+
+--3. Add a UNIQUE constraint to student_email.
+ALTER TABLE students
+ADD CONSTRAINT unique_student_email UNIQUE (student_email)

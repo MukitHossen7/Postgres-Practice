@@ -249,3 +249,11 @@ SELECT max(age) FROM students
 SELECT min(age) FROM students
 
 SELECT max(age) AS max_age, min(age) AS min_age FROM students
+
+-- 14.Update the status of students who scored less than 50 to 'failed'.
+UPDATE students SET status = 'tomi Failed' WHERE score < 50;
+
+-- UPDATE students SET last_login = '2022-01-01' WHERE id = 20
+-- 15.Delete students who have not logged in since last year.
+
+DELETE FROM students WHERE last_login < '2024-01-01';

@@ -14,15 +14,15 @@ INSERT INTO
         lname,
         contactnum,
         email,
-        age
+        user_age
     )
 VALUES (
-        13,
-        'Mima',
+        14,
+        'MimaK',
         'Akter',
-        '01725000000',
-        'mima@gmail.com',
-        25
+        '01726000000',
+        'mimaK@gmail.com',
+        30
     )
 
 -- Modify data type of a column
@@ -32,3 +32,6 @@ ALTER TABLE doctor ALTER COLUMN fname TYPE VARCHAR(100)
 ALTER TABLE doctor RENAME COLUMN uer_age TO user_age;
 
 ALTER TABLE doctor_info RENAME TO doctor;
+
+ALTER TABLE doctor
+ADD CONSTRAINT user_age CHECK (user_age >= 18) NOT NULL;

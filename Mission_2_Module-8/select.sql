@@ -360,4 +360,7 @@ VALUES (
 SELECT * FROM students;
 
 -- SELECT * FROM students WHERE NOT country = 'Bangladesh';
-SELECT * FROM students WHERE email IS NULL
+-- SELECT * FROM students WHERE email IS NULL
+-- SELECT * FROM students WHERE email IS NOT NULL
+
+SELECT COALESCE(email, 'defult@gmail.com') FROM students

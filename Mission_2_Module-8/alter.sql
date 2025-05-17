@@ -44,3 +44,5 @@ ALTER TABLE doctor ALTER COLUMN email DROP NOT NULL;
 ALTER TABLE doctor ADD CONSTRAINT unique_doctor_email UNIQUE (email);
 
 ALTER TABLE doctor DROP CONSTRAINT unique_doctor_email
+
+TRUNCATE TABLE doctor;

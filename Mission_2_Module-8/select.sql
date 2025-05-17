@@ -260,4 +260,19 @@ SELECT * FROM students
 -- SELECT DISTINCT grade FROM students
 -- SELECT * FROM students WHERE country = 'Bangladesh'
 -- SELECT * FROM students WHERE grade = 'A'
-SELECT * FROM students WHERE grade = 'A' AND course = 'Physics'
+-- SELECT * FROM students WHERE grade = 'A' AND course = 'Physics'
+
+-- SELECT * FROM students WHERE blood_group = 'A+'
+-- SELECT *
+-- FROM students
+-- WHERE
+--     country = 'Bangladesh'
+--     OR country = 'India'
+
+-- SELECT *
+-- FROM students
+-- WHERE (
+--         country = 'Bangladesh'
+--         OR country = 'India'
+--     )
+--     AND age = 20

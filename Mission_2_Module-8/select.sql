@@ -383,6 +383,17 @@ VALUES (
 -- SELECT * FROM students WHERE fist_name LIKE '_a%';
 -- SELECT * FROM students WHERE fist_name ILIKE 'm%';
 
-SELECT * FROM students;
+-- SELECT * FROM students LIMIT 5;
 
-SELECT * FROM students LIMIT 5;
+-- SELECT * FROM students LIMIT 5 OFFSET 5 * 0;
+
+-- SELECT * FROM students LIMIT 5 OFFSET 5 * 1;
+
+-- SELECT * FROM students LIMIT 5 OFFSET 5 * 2;
+
+-- SELECT * FROM students LIMIT 5 OFFSET 5 * 3;
+
+-- DELETE FROM students WHERE student_id = 1
+-- DELETE FROM students WHERE email Is NULL
+
+SELECT * FROM students;

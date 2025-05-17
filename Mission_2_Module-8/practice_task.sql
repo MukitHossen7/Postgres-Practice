@@ -235,3 +235,17 @@ SELECT * FROM students WHERE age BETWEEN 18 AND 21
 
 -- 10.Retrieve rows using IN for a specific set of roll numbers.
 SELECT * FROM students WHERE role IN (101, 102, 103, 104)
+
+-- 11.Count how many students exist in the students table.
+SELECT count(*) FROM students
+
+SELECT * FROM students
+
+-- Find the average score of students in a specific department.
+SELECT avg(score) FROM students WHERE department = 'EEE'
+
+SELECT max(age) FROM students
+
+SELECT min(age) FROM students
+
+SELECT max(age) AS max_age, min(age) AS min_age FROM students

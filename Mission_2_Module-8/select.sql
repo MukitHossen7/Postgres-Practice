@@ -1,252 +1,252 @@
 -- Active: 1747415867666@@127.0.0.1@5432@ph
 
 -- CREATE TABLE students (
-student_id SERIAL PRIMARY KEY,
-    fist_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    age INTEGER,
-    grade CHAR(2),
-    course VARCHAR(50),
-    email VARCHAR(100),
-    dob DATE,
-    blood_group CHAR(5),
-    country VARCHAR(50)
-)
+-- student_id SERIAL PRIMARY KEY,
+--     fist_name VARCHAR(50) NOT NULL,
+--     last_name VARCHAR(50) NOT NULL,
+--     age INTEGER,
+--     grade CHAR(2),
+--     course VARCHAR(50),
+--     email VARCHAR(100),
+--     dob DATE,
+--     blood_group CHAR(5),
+--     country VARCHAR(50)
+-- )
 
 -- DROP TABLE students;
 
 -- INSERT INTO
-students (
-    fist_name,
-    last_name,
-    age,
-    grade,
-    course,
-    email,
-    dob,
-    blood_group,
-    country
-)
-VALUES (
-        'Ariana',
-        'Khan',
-        21,
-        'A+',
-        'Computer Science',
-        'ariana.khan@example.com',
-        '2003-01-15',
-        'O+',
-        'Bangladesh'
-    ),
-    (
-        'Rahim',
-        'Ahmed',
-        23,
-        'B',
-        'Mathematics',
-        'rahim.ahmed@example.com',
-        '2001-03-12',
-        'A-',
-        'Bangladesh'
-    ),
-    (
-        'Sadia',
-        'Jahan',
-        22,
-        'A',
-        'Physics',
-        'sadia.jahan@example.com',
-        '2002-07-30',
-        'B+',
-        'India'
-    ),
-    (
-        'Mizan',
-        'Hasan',
-        24,
-        'B+',
-        'Chemistry',
-        'mizan.hasan@example.com',
-        '2000-05-22',
-        'O-',
-        'Nepal'
-    ),
-    (
-        'Tania',
-        'Khatun',
-        20,
-        'A',
-        'Biology',
-        'tania.khatun@example.com',
-        '2004-02-11',
-        'AB+',
-        'Bangladesh'
-    ),
-    (
-        'John',
-        'Doe',
-        25,
-        'C',
-        'Statistics',
-        'john.doe@example.com',
-        '1999-11-08',
-        'B-',
-        'USA'
-    ),
-    (
-        'Emily',
-        'Smith',
-        21,
-        'A+',
-        'English',
-        'emily.smith@example.com',
-        '2003-04-01',
-        'A+',
-        'UK'
-    ),
-    (
-        'Arif',
-        'Islam',
-        22,
-        'B',
-        'Economics',
-        'arif.islam@example.com',
-        '2002-10-18',
-        'AB-',
-        'Bangladesh'
-    ),
-    (
-        'Nusrat',
-        'Jahan',
-        23,
-        'A-',
-        'Law',
-        'nusrat.jahan@example.com',
-        '2001-06-25',
-        'O+',
-        'India'
-    ),
-    (
-        'Kabir',
-        'Uddin',
-        24,
-        'B+',
-        'History',
-        'kabir.uddin@example.com',
-        '2000-12-05',
-        'B+',
-        'Pakistan'
-    ),
-    (
-        'Salma',
-        'Akter',
-        20,
-        'A',
-        'Sociology',
-        'salma.akter@example.com',
-        '2004-08-20',
-        'A-',
-        'Bangladesh'
-    ),
-    (
-        'Noor',
-        'Hossain',
-        22,
-        'B-',
-        'Political Science',
-        'noor.hossain@example.com',
-        '2002-01-31',
-        'AB+',
-        'Bangladesh'
-    ),
-    (
-        'Nadia',
-        'Rahman',
-        21,
-        'A+',
-        'Psychology',
-        'nadia.rahman@example.com',
-        '2003-09-10',
-        'O-',
-        'Sri Lanka'
-    ),
-    (
-        'Ahsan',
-        'Kabir',
-        23,
-        'C',
-        'Philosophy',
-        'ahsan.kabir@example.com',
-        '2001-04-16',
-        'B-',
-        'Bangladesh'
-    ),
-    (
-        'Hafsa',
-        'Begum',
-        22,
-        'A',
-        'Anthropology',
-        'hafsa.begum@example.com',
-        '2002-11-23',
-        'O+',
-        'India'
-    ),
-    (
-        'Ryan',
-        'Ahmed',
-        25,
-        'B+',
-        'Geography',
-        'ryan.ahmed@example.com',
-        '1999-07-19',
-        'A+',
-        'Canada'
-    ),
-    (
-        'Faria',
-        'Islam',
-        20,
-        'A-',
-        'Microbiology',
-        'faria.islam@example.com',
-        '2004-03-04',
-        'AB-',
-        'Bangladesh'
-    ),
-    (
-        'Zayed',
-        'Khan',
-        24,
-        'B',
-        'Business',
-        'zayed.khan@example.com',
-        '2000-06-28',
-        'B+',
-        'Bangladesh'
-    ),
-    (
-        'Mehnaz',
-        'Sultana',
-        21,
-        'A+',
-        'Finance',
-        'mehnaz.sultana@example.com',
-        '2003-12-17',
-        'A-',
-        'India'
-    ),
-    (
-        'Imran',
-        'Chowdhury',
-        23,
-        'B-',
-        'Marketing',
-        'imran.chowdhury@example.com',
-        '2001-08-09',
-        'O-',
-        'Bangladesh'
-    );
+-- students (
+--     fist_name,
+--     last_name,
+--     age,
+--     grade,
+--     course,
+--     email,
+--     dob,
+--     blood_group,
+--     country
+-- )
+-- VALUES (
+--         'Ariana',
+--         'Khan',
+--         21,
+--         'A+',
+--         'Computer Science',
+--         'ariana.khan@example.com',
+--         '2003-01-15',
+--         'O+',
+--         'Bangladesh'
+--     ),
+--     (
+--         'Rahim',
+--         'Ahmed',
+--         23,
+--         'B',
+--         'Mathematics',
+--         'rahim.ahmed@example.com',
+--         '2001-03-12',
+--         'A-',
+--         'Bangladesh'
+--     ),
+--     (
+--         'Sadia',
+--         'Jahan',
+--         22,
+--         'A',
+--         'Physics',
+--         'sadia.jahan@example.com',
+--         '2002-07-30',
+--         'B+',
+--         'India'
+--     ),
+--     (
+--         'Mizan',
+--         'Hasan',
+--         24,
+--         'B+',
+--         'Chemistry',
+--         'mizan.hasan@example.com',
+--         '2000-05-22',
+--         'O-',
+--         'Nepal'
+--     ),
+--     (
+--         'Tania',
+--         'Khatun',
+--         20,
+--         'A',
+--         'Biology',
+--         'tania.khatun@example.com',
+--         '2004-02-11',
+--         'AB+',
+--         'Bangladesh'
+--     ),
+--     (
+--         'John',
+--         'Doe',
+--         25,
+--         'C',
+--         'Statistics',
+--         'john.doe@example.com',
+--         '1999-11-08',
+--         'B-',
+--         'USA'
+--     ),
+--     (
+--         'Emily',
+--         'Smith',
+--         21,
+--         'A+',
+--         'English',
+--         'emily.smith@example.com',
+--         '2003-04-01',
+--         'A+',
+--         'UK'
+--     ),
+--     (
+--         'Arif',
+--         'Islam',
+--         22,
+--         'B',
+--         'Economics',
+--         'arif.islam@example.com',
+--         '2002-10-18',
+--         'AB-',
+--         'Bangladesh'
+--     ),
+--     (
+--         'Nusrat',
+--         'Jahan',
+--         23,
+--         'A-',
+--         'Law',
+--         'nusrat.jahan@example.com',
+--         '2001-06-25',
+--         'O+',
+--         'India'
+--     ),
+--     (
+--         'Kabir',
+--         'Uddin',
+--         24,
+--         'B+',
+--         'History',
+--         'kabir.uddin@example.com',
+--         '2000-12-05',
+--         'B+',
+--         'Pakistan'
+--     ),
+--     (
+--         'Salma',
+--         'Akter',
+--         20,
+--         'A',
+--         'Sociology',
+--         'salma.akter@example.com',
+--         '2004-08-20',
+--         'A-',
+--         'Bangladesh'
+--     ),
+--     (
+--         'Noor',
+--         'Hossain',
+--         22,
+--         'B-',
+--         'Political Science',
+--         'noor.hossain@example.com',
+--         '2002-01-31',
+--         'AB+',
+--         'Bangladesh'
+--     ),
+--     (
+--         'Nadia',
+--         'Rahman',
+--         21,
+--         'A+',
+--         'Psychology',
+--         'nadia.rahman@example.com',
+--         '2003-09-10',
+--         'O-',
+--         'Sri Lanka'
+--     ),
+--     (
+--         'Ahsan',
+--         'Kabir',
+--         23,
+--         'C',
+--         'Philosophy',
+--         'ahsan.kabir@example.com',
+--         '2001-04-16',
+--         'B-',
+--         'Bangladesh'
+--     ),
+--     (
+--         'Hafsa',
+--         'Begum',
+--         22,
+--         'A',
+--         'Anthropology',
+--         'hafsa.begum@example.com',
+--         '2002-11-23',
+--         'O+',
+--         'India'
+--     ),
+--     (
+--         'Ryan',
+--         'Ahmed',
+--         25,
+--         'B+',
+--         'Geography',
+--         'ryan.ahmed@example.com',
+--         '1999-07-19',
+--         'A+',
+--         'Canada'
+--     ),
+--     (
+--         'Faria',
+--         'Islam',
+--         20,
+--         'A-',
+--         'Microbiology',
+--         'faria.islam@example.com',
+--         '2004-03-04',
+--         'AB-',
+--         'Bangladesh'
+--     ),
+--     (
+--         'Zayed',
+--         'Khan',
+--         24,
+--         'B',
+--         'Business',
+--         'zayed.khan@example.com',
+--         '2000-06-28',
+--         'B+',
+--         'Bangladesh'
+--     ),
+--     (
+--         'Mehnaz',
+--         'Sultana',
+--         21,
+--         'A+',
+--         'Finance',
+--         'mehnaz.sultana@example.com',
+--         '2003-12-17',
+--         'A-',
+--         'India'
+--     ),
+--     (
+--         'Imran',
+--         'Chowdhury',
+--         23,
+--         'B-',
+--         'Marketing',
+--         'imran.chowdhury@example.com',
+--         '2001-08-09',
+--         'O-',
+--         'Bangladesh'
+--     );
 
 -- SELECT * FROM students;
 
@@ -396,15 +396,18 @@ VALUES (
 -- DELETE FROM students WHERE student_id = 1
 -- DELETE FROM students WHERE email Is NULL
 
-SELECT * FROM students;
+-- SELECT * FROM students;
 
-UPDATE students SET blood_group = 'O-' WHERE student_id = 2
+-- UPDATE students SET blood_group = 'O-' WHERE student_id = 2
 
-UPDATE students
-SET
-    blood_group = 'B+'
-WHERE
-    country = 'Bangladesh'
-    AND age < 21
+-- UPDATE students
+-- SET
+--     blood_group = 'B+'
+-- WHERE
+--     country = 'Bangladesh'
+--     AND age < 21
 
-SELECT * FROM students WHERE country = 'Bangladesh' AND age < 21
+-- SELECT * FROM students WHERE country = 'Bangladesh' AND age < 21
+SELECT * FROM demo_students
+
+ALTER TABLE students RENAME TO demo_students;

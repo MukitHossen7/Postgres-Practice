@@ -362,8 +362,6 @@ VALUES (
 
 -- SELECT COALESCE(email, 'defult@gmail.com') FROM students
 
-SELECT * FROM students;
-
 -- SELECT *
 -- FROM students
 -- WHERE
@@ -384,3 +382,7 @@ SELECT * FROM students;
 
 -- SELECT * FROM students WHERE fist_name LIKE '_a%';
 -- SELECT * FROM students WHERE fist_name ILIKE 'm%';
+
+SELECT * FROM students;
+
+SELECT * FROM students LIMIT 5;

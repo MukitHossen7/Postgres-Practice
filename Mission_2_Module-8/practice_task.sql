@@ -232,3 +232,6 @@ SELECT * FROM students WHERE name ILIKE 'a%';
 
 -- 9.Select all students whose age is between 18 and 25.
 SELECT * FROM students WHERE age BETWEEN 18 AND 21
+
+-- 10.Retrieve rows using IN for a specific set of roll numbers.
+SELECT * FROM students WHERE role IN (101, 102, 103, 104)

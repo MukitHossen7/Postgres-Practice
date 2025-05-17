@@ -364,9 +364,23 @@ VALUES (
 
 SELECT * FROM students;
 
-SELECT *
-FROM students
-WHERE
-    country = 'India'
-    OR country = 'Canada'
-    OR country = 'Pakistan';
+-- SELECT *
+-- FROM students
+-- WHERE
+--     country = 'India'
+--     OR country = 'Canada'
+--     OR country = 'Pakistan';
+-- SELECT *
+-- FROM students
+-- WHERE
+--     country IN ('India', 'Canada', 'Pakistan');
+
+-- SELECT * FROM students WHERE age BETWEEN 20 AND 24 ORDER BY age ASC
+-- SELECT *
+-- FROM students
+-- WHERE
+--     dob BETWEEN '2000-01-01' AND '2003-01-01'
+-- ORDER BY dob ASC
+
+-- SELECT * FROM students WHERE fist_name LIKE '_a%';
+-- SELECT * FROM students WHERE fist_name ILIKE 'm%';

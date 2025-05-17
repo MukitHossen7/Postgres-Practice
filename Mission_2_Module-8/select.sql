@@ -255,7 +255,7 @@ VALUES (
 -- SELECT * FROM students ORDER BY dob DESC;
 -- SELECT country FROM students ORDER BY country ASC;
 
-SELECT * FROM students
+-- SELECT * FROM students
 
 -- SELECT DISTINCT grade FROM students
 -- SELECT * FROM students WHERE country = 'Bangladesh'
@@ -281,7 +281,7 @@ SELECT * FROM students
 
 -- SELECT * FROM students WHERE age <> 20
 
-SELECT * FROM students
+-- SELECT * FROM students
 
 -- SELECT upper(fist_name) FROM students
 -- SELECT length(email) FROM students
@@ -289,3 +289,75 @@ SELECT * FROM students
 
 -- SELECT max(age) FROM students
 -- SELECT count(*) FROM students
+-- INSERT INTO
+--     students (
+--         fist_name,
+--         last_name,
+--         age,
+--         grade,
+--         course,
+--         email,
+--         dob,
+--         blood_group,
+--         country
+--     )
+-- VALUES (
+--         'Rahim',
+--         'Ahmed',
+--         21,
+--         'A',
+--         'Computer Science',
+--         NULL,
+--         '2004-02-15',
+--         'O+',
+--         'Bangladesh'
+--     ),
+--     (
+--         'Sneha',
+--         'Roy',
+--         19,
+--         'B',
+--         'Mathematics',
+--         NULL,
+--         '2006-08-10',
+--         'A-',
+--         'India'
+--     ),
+--     (
+--         'James',
+--         'Miller',
+--         22,
+--         'A',
+--         'Physics',
+--         NULL,
+--         '2003-11-05',
+--         'B+',
+--         'USA'
+--     ),
+--     (
+--         'Fatima',
+--         'Khan',
+--         20,
+--         'B',
+--         'Biology',
+--         NULL,
+--         '2005-03-19',
+--         'AB-',
+--         'Pakistan'
+--     ),
+--     (
+--         'Carlos',
+--         'Diaz',
+--         23,
+--         'C',
+--         'Chemistry',
+--         NULL,
+--         '2002-06-25',
+--         'O-',
+--         'Mexico'
+--     )
+
+SELECT * FROM students;
+
+-- SELECT * FROM students WHERE NOT country = 'Bangladesh';
+SELECT * FROM students WHERE email IS NULL

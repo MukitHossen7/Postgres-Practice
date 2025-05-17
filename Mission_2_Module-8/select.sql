@@ -276,3 +276,7 @@ SELECT * FROM students
 --         OR country = 'India'
 --     )
 --     AND age = 20
+
+-- SELECT * FROM students WHERE grade = 'A' OR grade = 'B' AND course = 'Math' OR course = 'Physics';
+
+SELECT * FROM students WHERE age <> 20

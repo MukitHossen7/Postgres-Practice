@@ -356,11 +356,17 @@ VALUES (
 --         'O-',
 --         'Mexico'
 --     )
-
-SELECT * FROM students;
-
 -- SELECT * FROM students WHERE NOT country = 'Bangladesh';
 -- SELECT * FROM students WHERE email IS NULL
 -- SELECT * FROM students WHERE email IS NOT NULL
 
-SELECT COALESCE(email, 'defult@gmail.com') FROM students
+-- SELECT COALESCE(email, 'defult@gmail.com') FROM students
+
+SELECT * FROM students;
+
+SELECT *
+FROM students
+WHERE
+    country = 'India'
+    OR country = 'Canada'
+    OR country = 'Pakistan';

@@ -224,3 +224,11 @@ SELECT * FROM students WHERE score > 80 AND score IS NOT NULL
 
 -- 7.Use the NOT operator to exclude students from a specific department.
 SELECT * FROM students WHERE NOT department = 'CSE'
+
+-- 8.Fetch students whose names start with ‘A’ using LIKE and ILIKE.
+SELECT * FROM students WHERE name LIKE 'A%';
+
+SELECT * FROM students WHERE name ILIKE 'a%';
+
+-- 9.Select all students whose age is between 18 and 25.
+SELECT * FROM students WHERE age BETWEEN 18 AND 21

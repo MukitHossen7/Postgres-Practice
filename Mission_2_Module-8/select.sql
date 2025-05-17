@@ -279,4 +279,13 @@ SELECT * FROM students
 
 -- SELECT * FROM students WHERE grade = 'A' OR grade = 'B' AND course = 'Math' OR course = 'Physics';
 
-SELECT * FROM students WHERE age <> 20
+-- SELECT * FROM students WHERE age <> 20
+
+SELECT * FROM students
+
+-- SELECT upper(fist_name) FROM students
+-- SELECT length(email) FROM students
+-- SELECT concat(fist_name, ' ', last_name) FROM students
+
+-- SELECT max(age) FROM students
+-- SELECT count(*) FROM students

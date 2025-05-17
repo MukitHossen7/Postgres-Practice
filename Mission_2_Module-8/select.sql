@@ -397,3 +397,14 @@ VALUES (
 -- DELETE FROM students WHERE email Is NULL
 
 SELECT * FROM students;
+
+UPDATE students SET blood_group = 'O-' WHERE student_id = 2
+
+UPDATE students
+SET
+    blood_group = 'B+'
+WHERE
+    country = 'Bangladesh'
+    AND age < 21
+
+SELECT * FROM students WHERE country = 'Bangladesh' AND age < 21

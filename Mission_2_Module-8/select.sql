@@ -1,7 +1,7 @@
 -- Active: 1747415867666@@127.0.0.1@5432@ph
 
-CREATE TABLE students (
-    student_id SERIAL PRIMARY KEY,
+-- CREATE TABLE students (
+student_id SERIAL PRIMARY KEY,
     fist_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     age INTEGER,
@@ -15,18 +15,18 @@ CREATE TABLE students (
 
 -- DROP TABLE students;
 
-INSERT INTO
-    students (
-        fist_name,
-        last_name,
-        age,
-        grade,
-        course,
-        email,
-        dob,
-        blood_group,
-        country
-    )
+-- INSERT INTO
+students (
+    fist_name,
+    last_name,
+    age,
+    grade,
+    course,
+    email,
+    dob,
+    blood_group,
+    country
+)
 VALUES (
         'Ariana',
         'Khan',
@@ -248,8 +248,15 @@ VALUES (
         'Bangladesh'
     );
 
-SELECT * FROM students;
+-- SELECT * FROM students;
 
 -- SELECT age AS student_age FROM students;
 
-SELECT * FROM students ORDER BY dob DESC;
+-- SELECT * FROM students ORDER BY dob DESC;
+-- SELECT country FROM students ORDER BY country ASC;
+
+SELECT * FROM students
+
+-- SELECT DISTINCT grade FROM students
+-- SELECT * FROM students WHERE country = 'Bangladesh'
+SELECT * FROM students WHERE country = 'Bangladesh'

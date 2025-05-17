@@ -219,4 +219,8 @@ VALUES (
 
 SELECT * FROM students;
 
+-- 6.Write a query to find all students who have a score greater than 80 and not null.
 SELECT * FROM students WHERE score > 80 AND score IS NOT NULL
+
+-- 7.Use the NOT operator to exclude students from a specific department.
+SELECT * FROM students WHERE NOT department = 'CSE'

@@ -1,0 +1,17 @@
+-- Active: 1747415867666@@127.0.0.1@5432@ph
+
+SELECT now()
+
+CREATE TABLE tsz (
+    ts TIMESTAMP WITHOUT TIME ZONE,
+    tsz TIMESTAMP WITH TIME ZONE
+)
+
+INSERT INTO
+    tsz (ts, tsz)
+VALUES (
+        '2023-09-12 10:00:00',
+        '2023-09-12 10:00:00'
+    );
+
+SELECT * FROM tsz

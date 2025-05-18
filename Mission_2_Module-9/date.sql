@@ -41,3 +41,11 @@ SELECT country, count(*) As student_count
 FROM demo_students
 GROUP BY
     country;
+
+-- শুধুমাত্র সেই দেশগুলো দেখাও যেখানে ২ জনের বেশি ছাত্র/ছাত্রী আছে
+SELECT country, count(*) As total_student
+FROM demo_students
+GROUP BY
+    country
+HAVING
+    count(*) > 2

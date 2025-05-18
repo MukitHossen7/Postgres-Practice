@@ -23,3 +23,15 @@ SELECT CURRENT_TIME
 SELECT to_char(CURRENT_DATE, 'DD-MM-YYYY')
 
 SELECT CURRENT_DATE - INTERVAL '1 year'
+
+SELECT * FROM demo_students
+
+SELECT age (dob, '2025-05-18'), * FROM demo_students
+
+SELECT extract(
+        year
+        FROM age (dob, '2025-05-18')
+    ), *
+FROM demo_students
+
+SELECT extract( year from '2023-09-12'::date );

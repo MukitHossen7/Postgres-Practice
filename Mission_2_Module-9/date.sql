@@ -49,3 +49,9 @@ GROUP BY
     country
 HAVING
     count(*) > 2
+
+-- প্রতিটি ব্লাড গ্রুপে কতজন ছাত্র আছে তা বের করো।
+SELECT blood_group, count(*) AS total_student
+FROM demo_students
+GROUP BY
+    blood_group;

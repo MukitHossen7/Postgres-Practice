@@ -34,8 +34,6 @@ FROM demo_students
 
 SELECT extract( year from '2023-09-12'::date );
 
-SELECT * FROM demo_students
-
 --  প্রতিটি দেশের কতজন ছাত্র/ছাত্রী আছে তা বের করো।
 SELECT country, count(*) As student_count
 FROM demo_students
@@ -55,3 +53,20 @@ SELECT blood_group, count(*) AS total_student
 FROM demo_students
 GROUP BY
     blood_group;
+
+-- যেসব বিভাগে কমপক্ষে ২ জন ছাত্র/ছাত্রী আছে, সেগুলো দেখাও।
+
+SELECT * FROM demo_students
+
+SELECT course, count(*) AS student
+FROM demo_students
+GROUP BY
+    course
+HAVING
+    count(*) > 2
+
+-- প্রতিটি গ্রেড অনুযায়ী ছাত্রদের গড় বয়স বের করো।
+SELECT grade, avg(age) AS average_age
+FROM demo_students
+GROUP BY
+    grade

@@ -257,3 +257,7 @@ UPDATE students SET status = 'tomi Failed' WHERE score < 50;
 -- 15.Delete students who have not logged in since last year.
 
 DELETE FROM students WHERE last_login < '2024-01-01';
+
+-- 16.Use LIMIT and OFFSET to fetch the second page of results (5 per page).
+
+SELECT * FROM students LIMIT 5 OFFSET 5

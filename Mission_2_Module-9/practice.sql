@@ -249,3 +249,12 @@ FROM employees
     JOIN departments ON employees.department_id = departments.department_id
 GROUP BY
     department_name;
+
+-- 3.Count Employees in Each Department
+SELECT
+    department_name,
+    count(employee_name) as employee_count
+FROM employees
+    JOIN departments ON employees.department_id = departments.department_id
+GROUP BY
+    department_name;

@@ -10,3 +10,25 @@ CREATE TABLE post (
     title TEXT NOT NULL,
     user_id INT REFERENCES "user" (id)
 )
+
+INSERT INTO
+    "user" (username)
+VALUES ('akash'),
+    ('batash'),
+    ('sagor'),
+    ('nod')
+
+SELECT * FROM "user"
+
+INSERT INTO
+    post (title, user_id)
+VALUES (
+        'Hello the best developer',
+        NULL
+    )
+
+SELECT * FROM post
+
+ALTER TABLE post ALTER COLUMN user_id SET NOT NULL
+
+DELETE FROM post WHERE id = 10

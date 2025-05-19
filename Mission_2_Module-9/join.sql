@@ -21,3 +21,9 @@ VALUES (
         'You are a famous hacker',
         NULL
     );
+
+-- Left join query
+SELECT * FROM post LEFT JOIN "user" ON post.user_id = "user".id
+
+-- Right Join query
+SELECT * FROM post RIGHT JOIN "user" ON post.user_id = "user".id

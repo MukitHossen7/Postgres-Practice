@@ -15,6 +15,16 @@ CREATE TABLE departments (
     department_name VARCHAR(50) NOT NULL
 );
 
+-- create order tables
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+    customer_id INT,
+    order_date DATE NOT NULL,
+    total_amount DECIMAL(10, 2) NOT NULL
+);
+
+-- Inserting sample data into the orders table
+
 -- Inserting sample data into the departments table
 INSERT INTO
     departments (department_name)
@@ -217,3 +227,7 @@ VALUES (
         70000.25,
         '2021-11-20'
     );
+
+SELECT * FROM departments;
+
+SELECT * FROM employees;

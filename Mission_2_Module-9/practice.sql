@@ -258,3 +258,12 @@ FROM employees
     JOIN departments ON employees.department_id = departments.department_id
 GROUP BY
     department_name;
+
+-- 4.Find the Department name with the Highest Average Salary
+SELECT department_name, ROUND(avg(salary))
+FROM employees
+    JOIN departments ON employees.department_id = departments.department_id
+GROUP BY
+    department_name
+ORDER BY ROUND(avg(salary)) DESC
+LIMIT 1

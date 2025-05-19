@@ -3,7 +3,7 @@
 CREATE TABLE students (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
-    department_id INT REFERENCES departments (id) NOT NULL,
+    department_id INT,
     last_login DATE
 )
 
@@ -57,6 +57,8 @@ SELECT TO_CHAR(last_login, 'Month') AS login_month, count(*) AS total_login
 FROM students
 GROUP BY
     TO_CHAR(last_login, 'Month')
+
+-- 3.Count how many students logged in per month and show only those months where login count is more than 2.
 
 SELECT TO_CHAR(last_login, 'Month') AS login_month, count(*) AS total_login
 FROM students

@@ -8,7 +8,7 @@ CREATE TABLE "user" (
 CREATE TABLE post (
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
-    user_id INT REFERENCES "user" (id) ON DELETE CASCADE
+    user_id INT REFERENCES "user" (id) ON DELETE SET DEFAULT DEFAULT 2
 )
 
 INSERT INTO

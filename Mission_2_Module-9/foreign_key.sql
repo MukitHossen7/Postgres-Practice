@@ -8,7 +8,7 @@ CREATE TABLE "user" (
 CREATE TABLE post (
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
-    user_id INT REFERENCES "user" (id) ON DELETE SET DEFAULT DEFAULT 2
+    user_id INT REFERENCES "user" (id) ON DELETE CASCADE
 )
 
 INSERT INTO
@@ -49,8 +49,15 @@ SELECT * FROM post
 
 SELECT * FROM "user"
 
-DROP TABLE post
-
-DROP TABLE "user"
+-- DROP TABLE post
+-- DROP TABLE "user"
 
 DELETE FROM "user" WHERE id = 4
+
+SELECT title, username
+FROM post
+    INNER JOIN "user" ON post.user_id = "user".id;
+
+SELECT post.user_id
+FROM post
+    INNER JOIN "user" ON post.user_id = "user".id;

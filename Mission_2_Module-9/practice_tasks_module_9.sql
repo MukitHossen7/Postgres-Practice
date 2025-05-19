@@ -46,8 +46,21 @@ VALUES ('Alice', 1, '2025-05-12'),
 SELECT * FROM students;
 
 -- DROP TABLE students;
-
+-- 1.Retrieve students who have logged in within the last 30 days.
 SELECT *
 FROM students
 WHERE
     last_login >= CURRENT_DATE - INTERVAL '30 days'
+
+-- 2.Extract the login month from the last_login and group students by month.
+SELECT TO_CHAR(last_login, 'Month') AS login_month, count(*) AS total_login
+FROM students
+GROUP BY
+    TO_CHAR(last_login, 'Month')
+
+SELECT TO_CHAR(last_login, 'Month') AS login_month, count(*) AS total_login
+FROM students
+GROUP BY
+    TO_CHAR(last_login, 'Month')
+HAVING
+    count(*) >= 2

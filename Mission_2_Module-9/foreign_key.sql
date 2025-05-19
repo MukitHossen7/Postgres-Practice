@@ -8,7 +8,7 @@ CREATE TABLE "user" (
 CREATE TABLE post (
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
-    user_id INT REFERENCES "user" (id)
+    user_id INT REFERENCES "user" (id) ON DELETE CASCADE
 )
 
 INSERT INTO
@@ -18,17 +18,39 @@ VALUES ('akash'),
     ('sagor'),
     ('nod')
 
-SELECT * FROM "user"
-
 INSERT INTO
     post (title, user_id)
 VALUES (
-        'Hello the best developer',
-        NULL
+        'Enjoying a sunny day with Akash',
+        2
+    ),
+    ('Learning SQL with Akash', 1),
+    (
+        'Exploring the world of databases',
+        4
+    ),
+    (
+        'A day in the life of a programmer',
+        4
     )
+
+-- INSERT INTO
+--     post (title, user_id)
+-- VALUES (
+--         'Hello the best developer',
+--         NULL
+--     )
+
+-- ALTER TABLE post ALTER COLUMN user_id SET NOT NULL
+
+-- DELETE FROM post WHERE id = 10
 
 SELECT * FROM post
 
-ALTER TABLE post ALTER COLUMN user_id SET NOT NULL
+SELECT * FROM "user"
 
-DELETE FROM post WHERE id = 10
+DROP TABLE post
+
+DROP TABLE "user"
+
+DELETE FROM "user" WHERE id = 4

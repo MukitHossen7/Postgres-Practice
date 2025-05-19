@@ -232,6 +232,7 @@ SELECT * FROM departments;
 
 SELECT * FROM employees;
 
+-- 1.Inner Join to Retrieve Employee and Department Information
 SELECT
     employee_name,
     salary,
@@ -239,3 +240,12 @@ SELECT
     department_name
 FROM employees
     INNER JOIN departments ON employees.department_id = departments.department_id;
+
+-- 2.Group By Department with Average Salary
+SELECT
+    department_name,
+    FLOOR(avg(salary)) AS average_salary
+FROM employees
+    JOIN departments ON employees.department_id = departments.department_id
+GROUP BY
+    department_name;

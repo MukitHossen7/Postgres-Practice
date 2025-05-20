@@ -73,10 +73,6 @@ ALTER TABLE students ALTER COLUMN department_id SET NOT NULL
 ALTER TABLE students
 ADD CONSTRAINT department_id FOREIGN KEY (department_id) REFERENCES departments (id)
 
-SELECT * FROM students;
-
-SELECT * FROM departments;
-
 -- 5.Try inserting a student with a department_id that doesn’t exist and observe the behavior.
 INSERT INTO
     students (
@@ -92,3 +88,24 @@ SELECT department_id, count(*) FROM students GROUP BY department_id
 -- 6.Delete a department and see how students are affected using ON DELETE CASCADE and ON DELETE SET NULL.
 
 DELETE FROM departments WHERE id = 3
+
+-- 7. Join students and departments using INNER JOIN to display each student's department name.
+SELECT
+    students.name AS student_name,
+    departments.name As department_name
+FROM students
+    INNER JOIN departments ON students.department_id = departments.id
+
+SELECT * FROM students;
+
+SELECT * FROM departments;
+
+-- 8.Use a LEFT JOIN to show all students including those without a department.
+SELECT *
+FROM students
+    LEFT JOIN departments ON students.department_id = departments.id;
+
+-- 9.Use a RIGHT JOIN to show all departments including those without students.
+SELECT *
+FROM students
+    RIGHT JOIN departments ON students.department_id = departments.id;

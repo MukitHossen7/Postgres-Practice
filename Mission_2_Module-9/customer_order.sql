@@ -33,6 +33,7 @@ SELECT * FROM orders;
 
 SELECT * FROM customers;
 
+--  6: Find customers who have placed more than 2 orders and calculate the total amount spent by     each of these customers.
 SELECT
     orders.customer_id,
     customers.name,
@@ -45,3 +46,37 @@ GROUP BY
     customers.name
 HAVING
     count(*) > 2;
+
+SELECT
+    extract(
+        year
+        FROM order_date
+    ) AS year,
+    count(*) AS total_orders,
+    sum(total_amount) AS total_spent
+FROM orders
+GROUP BY
+    extract(
+        year
+        FROM order_date
+    )
+HAVING
+    extract(
+        year
+        FROM order_date
+    ) = 2022;
+
+--  7: Find the total amount of orders placed each month in the year 2022.
+SELECT
+    to_char(order_date, 'Month') AS month,
+    sum(total_amount) AS total_spent,
+    count(*) AS total_orders
+FROM orders
+WHERE
+    extract(
+        YEAR
+        FROM order_date
+    ) = 2022
+GROUP BY
+    to_char(order_date, 'Month')
+ORDER BY month

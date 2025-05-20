@@ -3,14 +3,12 @@
 CREATE TABLE students (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
-    department_id INT REFERENCES departments (id) ON DELETE SET NULL,
+    department_id INT REFERENCES departments (department_id) ON DELETE SET NULL,
     last_login DATE
 )
 
-DROP TABLE students;
-
 CREATE TABLE departments (
-    id SERIAL PRIMARY KEY,
+    department_id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL
 )
 
@@ -20,30 +18,41 @@ CREATE TABLE courses (
 )
 
 INSERT INTO
-    departments (name)
-VALUES ('CSE'),
-    ('EEE'),
-    ('CSE'),
-    ('EEE'),
-    ('BBA'),
-    ('CSE'),
-    ('BBA'),
-    ('CSE');
+    departments (department_id, name)
+VALUES (101, 'EEE'),
+    (102, 'CSE'),
+    (103, 'EEE'),
+    (104, 'BBA'),
+    (105, 'CSE'),
+    (106, 'BBA'),
+    (107, 'CSE'),
+    (108, 'CSE');
 
 INSERT INTO
     students (
+        id,
         name,
         department_id,
         last_login
     )
-VALUES ('Alice', 1, '2025-05-12'),
-    ('Bob', 3, '2024-05-23'),
-    ('Charlie', 1, '2023-07-11'),
-    ('David', 5, '2025-04-30'),
-    ('Eva', 3, '2024-03-15'),
-    ('Farhan', 1, '2023-10-30'),
-    ('Grace', 4, '2022-09-18'),
-    ('Hafsa', 1, '2022-01-01');
+VALUES (1, 'Alice', 101, '2025-05-12'),
+    (2, 'Bob', 103, '2024-05-23'),
+    (
+        3,
+        'Charlie',
+        101,
+        '2023-07-11'
+    ),
+    (4, 'David', 105, '2025-04-30'),
+    (5, 'Eva', 103, '2024-03-15'),
+    (
+        6,
+        'Farhan',
+        101,
+        '2023-10-30'
+    ),
+    (7, 'Grace', 104, '2022-09-18'),
+    (8, 'Hafsa', 101, '2022-01-01');
 
 -- DROP TABLE students;
 -- 1.Retrieve students who have logged in within the last 30 days.

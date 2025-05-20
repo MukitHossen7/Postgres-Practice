@@ -8,7 +8,7 @@ CREATE TABLE students (
 )
 
 CREATE TABLE departments (
-    department_id SERIAL PRIMARY KEY,
+    department_id INT PRIMARY KEY,
     name VARCHAR(50) NOT NULL
 )
 
@@ -112,6 +112,6 @@ FROM students
     FULL JOIN departments ON students.department_id = departments.id
 
 -- 11.Create a cross-product of all students and courses using CROSS JOIN.
-SELECT * FROM students CROSS JOIN departments
+SELECT * FROM students CROSS JOIN departments;
 
-SELECT * FROM students NATURAL JOIN departments
+SELECT * FROM students NATURAL JOIN departments;

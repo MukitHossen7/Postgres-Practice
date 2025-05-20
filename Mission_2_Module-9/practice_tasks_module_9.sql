@@ -66,3 +66,8 @@ GROUP BY
     TO_CHAR(last_login, 'Month')
 HAVING
     count(*) >= 2
+
+ALTER TABLE students ALTER COLUMN department_id SET NOT NULL
+
+ALTER TABLE students
+ADD CONSTRAINT department_id FOREIGN KEY (department_id) REFERENCES departments (id)

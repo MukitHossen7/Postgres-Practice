@@ -267,3 +267,24 @@ GROUP BY
     department_name
 ORDER BY ROUND(avg(salary)) DESC
 LIMIT 1
+
+-- 5.Count Employees Hired Each Year
+SELECT extract(
+        year
+        from hire_date
+    ) AS hire_year, count(*) AS employee_count
+FROM employees
+GROUP BY
+    extract(
+        year
+        from hire_date
+    )
+
+SELECT extract(
+        year
+        from hire_date
+    ) AS hire_year, count(*) AS employee_count
+FROM employees
+GROUP BY
+    hire_year
+ORDER BY hire_year

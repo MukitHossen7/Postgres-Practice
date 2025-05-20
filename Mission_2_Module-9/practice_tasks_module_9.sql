@@ -109,3 +109,8 @@ FROM students
 SELECT *
 FROM students
     RIGHT JOIN departments ON students.department_id = departments.id;
+
+-- 10.Perform a FULL JOIN to get all records from both students and departments.
+SELECT *
+FROM students
+    FULL JOIN departments ON students.department_id = departments.id

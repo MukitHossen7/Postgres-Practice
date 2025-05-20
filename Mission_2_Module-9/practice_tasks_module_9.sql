@@ -3,9 +3,11 @@
 CREATE TABLE students (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
-    department_id INT,
+    department_id INT REFERENCES departments (id) ON DELETE SET NULL,
     last_login DATE
 )
+
+DROP TABLE students;
 
 CREATE TABLE departments (
     id SERIAL PRIMARY KEY,
@@ -35,15 +37,13 @@ INSERT INTO
         last_login
     )
 VALUES ('Alice', 1, '2025-05-12'),
-    ('Bob', 2, '2024-05-23'),
+    ('Bob', 3, '2024-05-23'),
     ('Charlie', 1, '2023-07-11'),
-    ('David', 2, '2025-04-30'),
+    ('David', 5, '2025-04-30'),
     ('Eva', 3, '2024-03-15'),
     ('Farhan', 1, '2023-10-30'),
     ('Grace', 4, '2022-09-18'),
     ('Hafsa', 1, '2022-01-01');
-
-SELECT * FROM students;
 
 -- DROP TABLE students;
 -- 1.Retrieve students who have logged in within the last 30 days.
@@ -69,5 +69,26 @@ HAVING
 
 ALTER TABLE students ALTER COLUMN department_id SET NOT NULL
 
+-- 4. Create a foreign key constraint on department_id in the students table referencing departments(id)
 ALTER TABLE students
 ADD CONSTRAINT department_id FOREIGN KEY (department_id) REFERENCES departments (id)
+
+SELECT * FROM students;
+
+SELECT * FROM departments;
+
+-- 5.Try inserting a student with a department_id that doesn’t exist and observe the behavior.
+INSERT INTO
+    students (
+        id,
+        name,
+        department_id,
+        last_login
+    )
+VALUES (10, 'Raju', 10, '1999-08-20')
+
+SELECT department_id, count(*) FROM students GROUP BY department_id
+
+-- 6.Delete a department and see how students are affected using ON DELETE CASCADE and ON DELETE SET NULL.
+
+DELETE FROM departments WHERE id = 3

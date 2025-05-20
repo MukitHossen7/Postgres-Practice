@@ -17,16 +17,13 @@ CREATE TABLE courses (
     title TEXT NOT NULL
 )
 
+DROP TABLE departments
+
 INSERT INTO
     departments (department_id, name)
 VALUES (101, 'EEE'),
     (102, 'CSE'),
-    (103, 'EEE'),
-    (104, 'BBA'),
-    (105, 'CSE'),
-    (106, 'BBA'),
-    (107, 'CSE'),
-    (108, 'CSE');
+    (103, 'EEE')
 
 INSERT INTO
     students (
@@ -42,17 +39,7 @@ VALUES (1, 'Alice', 101, '2025-05-12'),
         'Charlie',
         101,
         '2023-07-11'
-    ),
-    (4, 'David', 105, '2025-04-30'),
-    (5, 'Eva', 103, '2024-03-15'),
-    (
-        6,
-        'Farhan',
-        101,
-        '2023-10-30'
-    ),
-    (7, 'Grace', 104, '2022-09-18'),
-    (8, 'Hafsa', 101, '2022-01-01');
+    )
 
 -- DROP TABLE students;
 -- 1.Retrieve students who have logged in within the last 30 days.
@@ -123,3 +110,8 @@ FROM students
 SELECT *
 FROM students
     FULL JOIN departments ON students.department_id = departments.id
+
+-- 11.Create a cross-product of all students and courses using CROSS JOIN.
+SELECT * FROM students CROSS JOIN departments
+
+SELECT * FROM students NATURAL JOIN departments

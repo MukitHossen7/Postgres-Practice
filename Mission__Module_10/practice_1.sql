@@ -267,3 +267,6 @@ SELECT * FROM students
 -- 4.students টেবিলের name কলামের নাম বদলে full_name রাখো।
 
 ALTER TABLE students RENAME COLUMN name TO full_name
+
+-- 5.students টেবিলের last_login কলামে ডিফল্ট মান হিসেবে বর্তমান তারিখ (CURRENT_DATE) সেট করো।
+ALTER TABLE students ALTER COLUMN last_login TYPE DATE;

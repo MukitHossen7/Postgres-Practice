@@ -262,11 +262,15 @@ ADD CONSTRAINT chk_department CHECK (
     department IN ('CSE', 'EEE', 'BBA', 'ENG')
 )
 
-SELECT * FROM students
-
 -- 4.students টেবিলের name কলামের নাম বদলে full_name রাখো।
 
 ALTER TABLE students RENAME COLUMN name TO full_name
 
 -- 5.students টেবিলের last_login কলামে ডিফল্ট মান হিসেবে বর্তমান তারিখ (CURRENT_DATE) সেট করো।
 ALTER TABLE students ALTER COLUMN last_login TYPE DATE;
+
+-- 6.যেসব ছাত্রদের নামে 'vi' অংশটি আছে (যেমন 'David', 'Vikram'), তাদের রেকর্ড বের করো (LIKE দিয়ে)।
+
+SELECT * FROM students
+
+SELECT * FROM students WHERE full_name LIKE '%vi%';

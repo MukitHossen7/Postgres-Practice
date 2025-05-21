@@ -248,8 +248,6 @@ VALUES (
         '2025-05-01'
     );
 
-SELECT * FROM students
-
 --1. students টেবিলে একটি নতুন কলাম admission_year (INTEGER) হিসেবে যোগ করো, যেখানে ছাত্রটি কোন বছরে ভর্তি হয়েছে তা থাকবে।
 
 ALTER TABLE students ADD COLUMN isSingle VARCHAR(50)
@@ -263,3 +261,9 @@ ALTER TABLE students
 ADD CONSTRAINT chk_department CHECK (
     department IN ('CSE', 'EEE', 'BBA', 'ENG')
 )
+
+SELECT * FROM students
+
+-- 4.students টেবিলের name কলামের নাম বদলে full_name রাখো।
+
+ALTER TABLE students RENAME COLUMN name TO full_name

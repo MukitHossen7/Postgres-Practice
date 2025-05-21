@@ -351,3 +351,11 @@ UPDATE students SET status = 'pending' WHERE status IS NULL
 -- 17.students টেবিলে যাদের বয়স ২৫ এর বেশি, তাদের score ৫ করে কমিয়ে দাও।
 
 UPDATE students SET score = score - 5 WHERE age > 25
+
+-- 18. যেসব ছাত্র একইসাথে score null এবং last_login null, তাদের রেকর্ড সম্পূর্ণ মুছে ফেলো।
+
+DELETE FROM students WHERE score IS NULL AND last_login IS NULL
+
+-- 19.department হিসেবে BBA থাকা ছাত্রদের status আপডেট করে 'reviewing' করে দাও।
+
+UPDATE students SET status = 'reviewing' WHERE department = 'BBA'

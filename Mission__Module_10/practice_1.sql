@@ -274,3 +274,19 @@ ALTER TABLE students ALTER COLUMN last_login TYPE DATE;
 SELECT * FROM students
 
 SELECT * FROM students WHERE full_name LIKE '%vi%';
+
+-- 7.এমন ছাত্রদের খুঁজে বের করো যাদের score ফিল্ড ফাঁকা (NULL) বা status 'failed'।
+
+SELECT * FROM students WHERE score IS NULL OR status = 'failed'
+
+-- 8.যেসব ছাত্রদের বয়স ২০ এর নিচে অথবা ২৪ এর বেশি, তাদের তালিকা দেখাও।
+
+SELECT * FROM students WHERE age < 20 OR age > 24;
+
+-- 9.যেসব ছাত্র একইসাথে CSE ডিপার্টমেন্টে পড়ে এবং স্কোর ৭০-এর বেশি, তাদের নাম ও রোল দেখাও।
+
+SELECT full_name, roll
+FROM students
+WHERE
+    department = 'CSE'
+    AND score > 70

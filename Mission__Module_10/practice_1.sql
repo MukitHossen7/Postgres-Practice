@@ -297,8 +297,6 @@ SELECT * FROM students WHERE full_name ILIKE '%a';
 
 SELECT department, avg(age) FROM students GROUP BY department
 
-SELECT * FROM students
-
 -- 12.কোন ডিপার্টমেন্টে সবচেয়ে কম সংখ্যক ছাত্র আছে তা বের করো
 
 SELECT department, count(*) AS count_student
@@ -307,3 +305,31 @@ GROUP BY
     department
 ORDER BY count_student ASC
 LIMIT 1
+
+-- 13.এমন কয়টি ছাত্র আছে যাদের score ৯০ এর বেশি?
+
+SELECT * FROM students WHERE score > 90;
+
+-- 14.students টেবিল থেকে সর্বোচ্চ score কার সেটা বের করো (নাম ও রোলসহ)।
+
+SELECT * FROM students WHERE score
+
+SELECT * FROM students
+
+SELECT score, full_name, roll, max(score)
+FROM students
+WHERE
+    score IS NOT NULL
+GROUP BY
+    score,
+    full_name,
+    roll
+ORDER BY score DESC
+LIMIT 1
+
+SELECT score, full_name, roll
+FROM students
+WHERE
+    score IS NOT NULL
+ORDER BY score DESC
+LIMIT 1;

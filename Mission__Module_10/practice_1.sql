@@ -257,3 +257,9 @@ ALTER TABLE students ADD COLUMN isSingle VARCHAR(50)
 -- 2.students টেবিলে score কলামের ডেটাটাইপ পরিবর্তন করে DECIMAL(5,2) করো।
 
 ALTER TABLE students ALTER COLUMN score TYPE DECIMAL(5, 2)
+
+-- 3.students টেবিলে department কলামের জন্য একটি CHECK constraint দাও যাতে কেবলমাত্র 'CSE', 'EEE', 'BBA' এবং 'ENG' মান গ্রহণযোগ্য হয়।
+ALTER TABLE students
+ADD CONSTRAINT chk_department CHECK (
+    department IN ('CSE', 'EEE', 'BBA', 'ENG')
+)

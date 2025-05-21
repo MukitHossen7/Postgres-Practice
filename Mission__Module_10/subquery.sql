@@ -160,8 +160,6 @@ VALUES (
         '2012-10-05'
     );
 
-SELECT * FROM employees;
-
 -- Retrieve all employees whose salary is greater than the highest salary of the HR department
 
 SELECT *
@@ -173,3 +171,17 @@ WHERE
         WHERE
             department_name = 'HR'
     )
+
+SELECT * FROM employees;
+
+CREATE VIEW dept_avg_salaries AS
+SELECT department_name, AVG(salary) AS avg_salary
+FROM employees
+GROUP BY
+    department_name
+
+SELECT * FROM dept_avg_salaries;
+
+SELECT department_name FROM employees GROUP BY department_name
+
+SELECT * FROM dept_avg_salaries;

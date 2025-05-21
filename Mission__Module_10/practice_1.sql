@@ -308,7 +308,7 @@ LIMIT 1
 
 -- 13.এমন কয়টি ছাত্র আছে যাদের score ৯০ এর বেশি?
 
-SELECT * FROM students WHERE score > 90;
+SELECT count(*) FROM students WHERE score > 90
 
 -- 14.students টেবিল থেকে সর্বোচ্চ score কার সেটা বের করো (নাম ও রোলসহ)।
 
@@ -316,16 +316,16 @@ SELECT * FROM students WHERE score
 
 SELECT * FROM students
 
-SELECT score, full_name, roll, max(score)
-FROM students
-WHERE
-    score IS NOT NULL
-GROUP BY
-    score,
-    full_name,
-    roll
-ORDER BY score DESC
-LIMIT 1
+-- SELECT score, full_name, roll, max(score)
+-- FROM students
+-- WHERE
+--     score IS NOT NULL
+-- GROUP BY
+--     score,
+--     full_name,
+--     roll
+-- ORDER BY score DESC
+-- LIMIT 1
 
 SELECT score, full_name, roll
 FROM students
@@ -333,3 +333,10 @@ WHERE
     score IS NOT NULL
 ORDER BY score DESC
 LIMIT 1;
+
+-- 15.students টেবিল থেকে প্রত্যেক status অনুযায়ী মোট ছাত্র সংখ্যা দেখাও।
+
+SELECT status, count(*) As total_student
+FROM students
+GROUP BY
+    status

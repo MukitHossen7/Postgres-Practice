@@ -340,3 +340,14 @@ SELECT status, count(*) As total_student
 FROM students
 GROUP BY
     status
+
+-- 16.যেসব ছাত্রদের status NULL, তাদের status কে 'pending' করে আপডেট করো।
+
+SELECT * FROM students
+
+-- 16.যেসব ছাত্রদের status NULL, তাদের status কে 'pending' করে আপডেট করো।
+UPDATE students SET status = 'pending' WHERE status IS NULL
+
+-- 17.students টেবিলে যাদের বয়স ২৫ এর বেশি, তাদের score ৫ করে কমিয়ে দাও।
+
+UPDATE students SET score = score - 5 WHERE age > 25

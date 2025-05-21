@@ -172,8 +172,6 @@ WHERE
             department_name = 'HR'
     )
 
-SELECT * FROM employees;
-
 CREATE VIEW dept_avg_salaries AS
 SELECT department_name, AVG(salary) AS avg_salary
 FROM employees
@@ -185,3 +183,49 @@ SELECT * FROM dept_avg_salaries;
 SELECT department_name FROM employees GROUP BY department_name
 
 SELECT * FROM dept_avg_salaries;
+
+SELECT * FROM employees;
+
+-- //! CREATE FUNCTION
+
+CREATE OR REPLACE FUNCTION total_employees()
+RETURNS INTEGER
+LANGUAGE SQL
+AS 
+$$ 
+SELECT count(*) FROM employees;
+$$;
+
+SELECT * FROM total_employees ()
+
+CREATE OR REPLACE FUNCTION delete_row()
+RETURNS VOID
+LANGUAGE SQL
+AS
+$$
+DELETE FROM employees WHERE emp_id = 24;
+$$
+
+SELECT * FROM delete_row ();
+
+CREATE OR REPLACE FUNCTION delete_row_param(p_emp_id INT)
+RETURNS VOID
+LANGUAGE SQL
+AS
+$$ 
+DELETE FROM employees WHERE emp_id = p_emp_id;
+$$
+
+SELECT delete_row_with_param (95);
+
+SELECT * FROM employees
+
+CREATE FUNCTION del_row_use_para (para1 INT)
+RETURNS VOID
+LANGUAGE SQL
+AS 
+$$
+DELETE FROM employees WHERE emp_id = para1;
+$$
+
+SELECT del_row_use_para (96)

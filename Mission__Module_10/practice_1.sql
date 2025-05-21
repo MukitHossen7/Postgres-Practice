@@ -290,3 +290,7 @@ FROM students
 WHERE
     department = 'CSE'
     AND score > 70
+
+-- 10.students টেবিলে যাদের নাম 'a' দিয়ে শেষ হয়েছে, সেই রেকর্ডগুলো বের করো।
+
+SELECT * FROM students WHERE full_name ILIKE '%a';

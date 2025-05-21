@@ -1,0 +1,259 @@
+-- Active: 1747415867666@@127.0.0.1@5432@medical_db
+
+DROP TABLE students
+
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    roll INT UNIQUE,
+    full_name VARCHAR(100),
+    age INT,
+    department VARCHAR(50),
+    score DECIMAL(5, 2),
+    status VARCHAR(20),
+    student_email VARCHAR(100) UNIQUE,
+    admission_year INT,
+    last_login DATE DEFAULT CURRENT_DATE
+);
+
+INSERT INTO
+    students (
+        roll,
+        full_name,
+        age,
+        department,
+        score,
+        status,
+        student_email,
+        admission_year,
+        last_login
+    )
+VALUES (
+        101,
+        'Alice Akter',
+        20,
+        'CSE',
+        85.50,
+        'passed',
+        'alice@example.com',
+        2022,
+        '2024-11-15'
+    ),
+    (
+        102,
+        'Bob Hossain',
+        22,
+        'EEE',
+        45.00,
+        'failed',
+        'bob@example.com',
+        2021,
+        '2023-01-10'
+    ),
+    (
+        103,
+        'Charlie Khan',
+        19,
+        'CSE',
+        78.00,
+        'passed',
+        'charlie@example.com',
+        2023,
+        '2025-01-01'
+    ),
+    (
+        104,
+        'David Rahman',
+        24,
+        'BBA',
+        92.25,
+        'passed',
+        'david@example.com',
+        2020,
+        '2024-06-12'
+    ),
+    (
+        105,
+        'Eva Karim',
+        21,
+        'CSE',
+        67.75,
+        'passed',
+        'eva@example.com',
+        2022,
+        '2024-08-01'
+    ),
+    (
+        106,
+        'Fahim Anam',
+        23,
+        'EEE',
+        49.00,
+        'failed',
+        'fahim@example.com',
+        2020,
+        '2022-12-20'
+    ),
+    (
+        107,
+        'Arif Islam',
+        18,
+        'CSE',
+        55.00,
+        'passed',
+        'arif@example.com',
+        2023,
+        '2025-03-11'
+    ),
+    (
+        108,
+        'Nusrat Jahan',
+        25,
+        'BBA',
+        88.00,
+        'passed',
+        'nusrat@example.com',
+        2021,
+        '2023-07-01'
+    ),
+    (
+        109,
+        'Hasan Rumi',
+        26,
+        'EEE',
+        NULL,
+        NULL,
+        'hasan@example.com',
+        2020,
+        NULL
+    ),
+    (
+        110,
+        'Tania Akhter',
+        22,
+        'ENG',
+        81.00,
+        'passed',
+        'tania@example.com',
+        2023,
+        '2025-01-05'
+    ),
+    (
+        111,
+        'Sumon Ahamed',
+        24,
+        'EEE',
+        70.00,
+        'passed',
+        'sumon@example.com',
+        2021,
+        '2023-12-25'
+    ),
+    (
+        112,
+        'Rafiq Uddin',
+        20,
+        'BBA',
+        74.00,
+        'passed',
+        'rafiq@example.com',
+        2022,
+        '2024-05-30'
+    ),
+    (
+        113,
+        'Ayesha Khatun',
+        19,
+        'CSE',
+        89.00,
+        'passed',
+        'ayesha@example.com',
+        2024,
+        '2025-04-02'
+    ),
+    (
+        114,
+        'Vikram Das',
+        21,
+        'ENG',
+        77.50,
+        'passed',
+        'vikram@example.com',
+        2022,
+        '2024-11-10'
+    ),
+    (
+        115,
+        'Lubna A',
+        23,
+        'EEE',
+        NULL,
+        'pending',
+        'lubna@example.com',
+        2020,
+        NULL
+    ),
+    (
+        116,
+        'Shuvo Ray',
+        20,
+        'CSE',
+        91.00,
+        'passed',
+        'shuvo@example.com',
+        2021,
+        '2023-09-09'
+    ),
+    (
+        117,
+        'Nadia Afrin',
+        25,
+        'BBA',
+        65.00,
+        'passed',
+        'nadia@example.com',
+        2022,
+        '2023-10-10'
+    ),
+    (
+        118,
+        'Zahin Chowdhury',
+        26,
+        'EEE',
+        52.00,
+        'failed',
+        'zahin@example.com',
+        2020,
+        '2022-01-01'
+    ),
+    (
+        119,
+        'Amina Akter',
+        24,
+        'ENG',
+        85.00,
+        'passed',
+        'amina@example.com',
+        2021,
+        '2024-03-03'
+    ),
+    (
+        120,
+        'Rezaul Karim',
+        19,
+        'CSE',
+        48.00,
+        NULL,
+        'rezaul@example.com',
+        2024,
+        '2025-05-01'
+    );
+
+SELECT * FROM students
+
+--1. students টেবিলে একটি নতুন কলাম admission_year (INTEGER) হিসেবে যোগ করো, যেখানে ছাত্রটি কোন বছরে ভর্তি হয়েছে তা থাকবে।
+
+ALTER TABLE students ADD COLUMN isSingle VARCHAR(50)
+
+-- 2.students টেবিলে score কলামের ডেটাটাইপ পরিবর্তন করে DECIMAL(5,2) করো।
+
+ALTER TABLE students ALTER COLUMN score TYPE DECIMAL(5, 2)

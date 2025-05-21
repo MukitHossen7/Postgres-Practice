@@ -11,3 +11,7 @@ WHERE
 
 -- Execution Time: 0.034 ms
 CREATE INDEX idx_emp_name ON employees (emp_name)
+
+EXPLAIN ANALYSE SELECT * FROM employees WHERE emp_id = 20
+
+CREATE INDEX idx_salary ON employees (salary)

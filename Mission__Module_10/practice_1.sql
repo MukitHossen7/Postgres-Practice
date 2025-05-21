@@ -271,8 +271,6 @@ ALTER TABLE students ALTER COLUMN last_login TYPE DATE;
 
 -- 6.যেসব ছাত্রদের নামে 'vi' অংশটি আছে (যেমন 'David', 'Vikram'), তাদের রেকর্ড বের করো (LIKE দিয়ে)।
 
-SELECT * FROM students
-
 SELECT * FROM students WHERE full_name LIKE '%vi%';
 
 -- 7.এমন ছাত্রদের খুঁজে বের করো যাদের score ফিল্ড ফাঁকা (NULL) বা status 'failed'।
@@ -294,3 +292,18 @@ WHERE
 -- 10.students টেবিলে যাদের নাম 'a' দিয়ে শেষ হয়েছে, সেই রেকর্ডগুলো বের করো।
 
 SELECT * FROM students WHERE full_name ILIKE '%a';
+
+-- 11.students টেবিল থেকে প্রতিটি department অনুযায়ী গড় বয়স বের করো।
+
+SELECT department, avg(age) FROM students GROUP BY department
+
+SELECT * FROM students
+
+-- 12.কোন ডিপার্টমেন্টে সবচেয়ে কম সংখ্যক ছাত্র আছে তা বের করো
+
+SELECT department, count(*) AS count_student
+FROM students
+GROUP BY
+    department
+ORDER BY count_student ASC
+LIMIT 1

@@ -365,3 +365,5 @@ UPDATE students SET status = 'reviewing' WHERE department = 'BBA'
 UPDATE students SET last_login = last_login + INTERVAL '5 day'
 
 SELECT * FROM students
+
+DROP TABLE employees;

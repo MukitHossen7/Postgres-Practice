@@ -362,4 +362,6 @@ UPDATE students SET status = 'reviewing' WHERE department = 'BBA'
 
 -- 20.সব ছাত্রের last_login তারিখ ৫ দিন বাড়িয়ে আপডেট করো।
 
+UPDATE students SET last_login = last_login + INTERVAL '5 day'
+
 SELECT * FROM students

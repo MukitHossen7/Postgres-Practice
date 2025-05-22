@@ -177,6 +177,12 @@ FROM employees
 WHERE
     departments.name IS NULL
 
+SELECT *
+FROM employees
+    LEFT OUTER JOIN departments ON employees.department_id = departments.id
+WHERE
+    departments.name IS NULL
+
 SELECT * FROM employees
 
 SELECT * FROM departments;

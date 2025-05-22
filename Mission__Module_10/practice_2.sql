@@ -63,3 +63,10 @@ ADD CONSTRAINT fk_customer_id FOREIGN KEY (customer_id) REFERENCES customers (id
 
 ALTER TABLE departments
 ADD CONSTRAINT unique_department_name UNIQUE (name)
+
+SELECT * FROM employees;
+
+-- 3.employees টেবিলের email ফিল্ডে এমন constraint দাও যাতে সেটা @company.com দিয়ে শেষ না হলে ইনসার্ট হতে না পারে।
+
+ALTER TABLE employees
+ADD CONSTRAINT check_employee_email CHECK (email LIKE '%@company.com')

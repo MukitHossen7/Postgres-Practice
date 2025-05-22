@@ -15,6 +15,23 @@ CREATE TABLE customers (
     created_at DATE
 );
 
+-- Departments table
+CREATE TABLE departments (
+    id INT PRIMARY KEY,
+    name VARCHAR(100)
+);
+
+-- Employees table
+CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    department_id INT,
+    manager_id INT,
+    hire_date DATE,
+    age INT
+);
+
 -- Insert into customers
 INSERT INTO
     customers
@@ -43,3 +60,6 @@ ALTER TABLE orders
 ADD CONSTRAINT fk_customer_id FOREIGN KEY (customer_id) REFERENCES customers (id);
 
 -- 2.departments টেবিলে name কলামে একটি UNIQUE constraint অ্যাড করো যাতে একই নামের দুটি ডিপার্টমেন্ট না থাকে।
+
+ALTER TABLE departments
+ADD CONSTRAINT unique_department_name UNIQUE (name)

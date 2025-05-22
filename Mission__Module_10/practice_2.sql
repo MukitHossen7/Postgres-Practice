@@ -32,6 +32,60 @@ CREATE TABLE employees (
     age INT
 );
 
+INSERT INTO
+    employees
+VALUES (
+        1,
+        'John',
+        'john@company.com',
+        1,
+        NULL,
+        '2023-01-01',
+        30
+    ),
+    (
+        2,
+        'Jane',
+        'jane@company.com',
+        2,
+        1,
+        '2022-02-01',
+        32
+    ),
+    (
+        3,
+        'Jake',
+        'jake@company.com',
+        NULL,
+        NULL,
+        '2024-03-01',
+        27
+    ),
+    (
+        4,
+        'Jill',
+        'jill@company.com',
+        3,
+        2,
+        '2022-04-01',
+        45
+    ),
+    (
+        5,
+        'Jim',
+        'jim@company.com',
+        1,
+        1,
+        '2021-05-01',
+        40
+    );
+
+INSERT INTO
+    departments
+VALUES (1, 'Sales'),
+    (2, 'Engineering'),
+    (3, 'HR');
+
 -- Insert into customers
 INSERT INTO
     customers
@@ -70,3 +124,29 @@ SELECT * FROM employees;
 
 ALTER TABLE employees
 ADD CONSTRAINT check_employee_email CHECK (email LIKE '%@company.com')
+
+-- 4.orders টেবিলে total_amount ফিল্ডের জন্য CHECK constraint দাও যাতে সেটি ০ এর চেয়ে বড় হয়।
+
+ALTER TABLE orders
+ADD CONSTRAINT check_total_amount CHECK (total_amount > 0);
+
+SELECT * FROM departments;
+
+SELECT * FROM employees
+
+-- 5.যদি departments টেবিল থেকে কোনো রো ডিলিট হয়, তাহলে সেই ডিপার্টমেন্টের সব employees এর department_id NULL হয়ে যাক – এমনভাবে FOREIGN KEY কনফিগার করো।
+
+ALTER TABLE employees
+ADD CONSTRAINT fk_employees_department_id FOREIGN KEY (department_id) REFERENCES departments (id) ON DELETE SET NULL
+
+-- 6.employees টেবিল থেকে দেখাও, কোন বছরে কয়জন করে নিয়োগ পেয়েছে?
+
+SELECT * FROM employees
+
+SELECT extract(
+        YEAR
+        FROM hire_date
+    ) AS hire_year, count(*)
+FROM employees
+GROUP BY
+    hire_year

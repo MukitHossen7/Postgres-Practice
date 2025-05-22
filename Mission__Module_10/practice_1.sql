@@ -359,3 +359,7 @@ DELETE FROM students WHERE score IS NULL AND last_login IS NULL
 -- 19.department হিসেবে BBA থাকা ছাত্রদের status আপডেট করে 'reviewing' করে দাও।
 
 UPDATE students SET status = 'reviewing' WHERE department = 'BBA'
+
+-- 20.সব ছাত্রের last_login তারিখ ৫ দিন বাড়িয়ে আপডেট করো।
+
+SELECT * FROM students

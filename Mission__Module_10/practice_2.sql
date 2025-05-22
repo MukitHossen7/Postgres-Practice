@@ -150,3 +150,12 @@ SELECT extract(
 FROM employees
 GROUP BY
     hire_year
+
+-- 7.এমন সব অর্ডার বের করো যেগুলো শুক্রবারে প্লেস করা হয়েছে।
+
+SELECT *
+FROM orders
+WHERE
+    trim(to_char(order_date, 'Day')) = 'Friday'
+
+-- 8.customers টেবিলে দেখাও, প্রতি মাসে কয়জন নতুন কাস্টমার যোগ হয়েছে?

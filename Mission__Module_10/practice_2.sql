@@ -162,3 +162,21 @@ SELECT trim(to_char(created_at, 'Month')) As month_name, count(*)
 FROM customers
 GROUP BY
     month_name
+
+--9. orders এবং customers টেবিল join করে দেখাও: অর্ডারের ID, কাস্টমারের নাম এবং অর্ডারের তারিখ।
+
+SELECT orders.id, name, order_date
+FROM orders
+    JOIN customers ON orders.customer_id = customers.id
+
+-- 10.employees টেবিল এবং departments টেবিল outer join করে এমন সব এমপ্লয়ি বের করো যাদের department নাই।
+
+SELECT *
+FROM employees
+    FULL JOIN departments ON employees.department_id = departments.id
+WHERE
+    departments.name IS NULL
+
+SELECT * FROM employees
+
+SELECT * FROM departments;

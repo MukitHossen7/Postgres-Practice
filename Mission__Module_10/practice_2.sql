@@ -273,10 +273,6 @@ HAVING
 
 -- 19.employees টেবিল থেকে group করে দেখাও, কোন ডিপার্টমেন্টের গড় বয়স সবচেয়ে বেশি?
 
-SELECT * FROM employees
-
-SELECT * FROM departments
-
 SELECT departments.name, avg(age) AS avg_age
 FROM employees
     JOIN departments ON employees.department_id = departments.id
@@ -284,3 +280,14 @@ GROUP BY
     departments.name
 ORDER BY avg_age DESC
 LIMIT 1
+
+-- 20. customers টেবিলে group করে দেখাও, যেসব কাস্টমারদের সর্বমোট অর্ডারের পরিমাণ ৫০০ টাকার বেশি।
+
+SELECT * FROM orders
+
+SELECT customer_id, sum(total_amount) As amount
+FROM orders
+GROUP BY
+    customer_id
+HAVING
+    sum(total_amount) > 500

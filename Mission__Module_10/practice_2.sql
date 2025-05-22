@@ -270,3 +270,17 @@ GROUP BY
     category
 HAVING
     count(*) > 5
+
+-- 19.employees টেবিল থেকে group করে দেখাও, কোন ডিপার্টমেন্টের গড় বয়স সবচেয়ে বেশি?
+
+SELECT * FROM employees
+
+SELECT * FROM departments
+
+SELECT departments.name, avg(age) AS avg_age
+FROM employees
+    JOIN departments ON employees.department_id = departments.id
+GROUP BY
+    departments.name
+ORDER BY avg_age DESC
+LIMIT 1

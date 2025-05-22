@@ -32,6 +32,54 @@ CREATE TABLE employees (
     age INT
 );
 
+-- Products table
+CREATE TABLE products (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    category VARCHAR(100),
+    price DECIMAL(10, 2),
+    updated_at DATE
+);
+
+-- Insert into products
+INSERT INTO
+    products
+VALUES (
+        1,
+        'Laptop',
+        'Electronics',
+        800.00,
+        '2024-01-01'
+    ),
+    (
+        2,
+        'Phone',
+        'Electronics',
+        600.00,
+        '2024-02-15'
+    ),
+    (
+        3,
+        'Desk',
+        'Furniture',
+        150.00,
+        '2023-06-10'
+    ),
+    (
+        4,
+        'Chair',
+        'Furniture',
+        75.00,
+        '2024-03-20'
+    ),
+    (
+        5,
+        'Tablet',
+        'Electronics',
+        300.00,
+        '2024-04-25'
+    );
+
 INSERT INTO
     employees
 VALUES (
@@ -186,3 +234,9 @@ WHERE
 SELECT * FROM employees
 
 SELECT * FROM departments;
+
+-- 11.products এবং orders টেবিল join করে দেখাও: কোন কোন পণ্য কয়বার অর্ডার করা হয়েছে?
+
+SELECT * FROM products
+
+SELECT * FROM orders

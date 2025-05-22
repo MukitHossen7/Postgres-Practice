@@ -104,8 +104,6 @@ VALUES (1, 1, '2024-03-08', 800.00),
     (4, 1, '2024-04-05', 75.00),
     (5, 4, '2024-04-12', 300.00);
 
-SELECT * FROM customers
-
 SELECT * FROM orders
 
 -- 1.orders টেবিলে customer_id ফিল্ডে FOREIGN KEY কিভাবে অ্যাড করবে যাতে এটা customers টেবিলের সাথে রিলেট করে?
@@ -159,3 +157,8 @@ WHERE
     trim(to_char(order_date, 'Day')) = 'Friday'
 
 -- 8.customers টেবিলে দেখাও, প্রতি মাসে কয়জন নতুন কাস্টমার যোগ হয়েছে?
+
+SELECT trim(to_char(created_at, 'Month')) As month_name, count(*)
+FROM customers
+GROUP BY
+    month_name

@@ -41,44 +41,53 @@ CREATE TABLE products (
     updated_at DATE
 );
 
+CREATE TABLE order_items (
+    id INT PRIMARY KEY,
+    order_id INT REFERENCES orders (id),
+    product_id INT REFERENCES products (id),
+    quantity INT,
+    price DECIMAL(10, 2)
+);
+
+INSERT INTO
+    order_items
+VALUES (1, 1, 1, 1, 800.00),
+    (2, 1, 6, 1, 20.00),
+    (3, 2, 2, 1, 600.00),
+    (4, 3, 3, 1, 300.00),
+    (5, 4, 4, 2, 75.00),
+    (6, 4, 6, 3, 20.00),
+    (7, 5, 5, 1, 150.00),
+    (8, 6, 7, 3, 200.00),
+    (9, 7, 8, 1, 450.00),
+    (10, 7, 9, 1, 300.00),
+    (11, 8, 3, 1, 300.00),
+    (12, 9, 6, 2, 20.00),
+    (13, 10, 10, 2, 1000.00);
 -- Insert into products
 INSERT INTO
     products
 VALUES (
-        1,
+        39,
         'Laptop',
-        'Electronics',
-        800.00,
-        '2024-01-01'
+        'Love',
+        700.00,
+        '2024-02-11'
     ),
     (
-        2,
+        40,
         'Phone',
-        'Electronics',
+        'Hate',
         600.00,
-        '2024-02-15'
+        '2024-01-15'
     ),
     (
-        3,
+        41,
         'Desk',
         'Furniture',
-        150.00,
-        '2023-06-10'
-    ),
-    (
-        4,
-        'Chair',
-        'Furniture',
-        75.00,
-        '2024-03-20'
-    ),
-    (
-        5,
-        'Tablet',
-        'Electronics',
-        300.00,
-        '2024-04-25'
-    );
+        160.00,
+        '2023-02-11'
+    )
 
 INSERT INTO
     employees
@@ -237,6 +246,27 @@ SELECT * FROM departments;
 
 -- 11.products এবং orders টেবিল join করে দেখাও: কোন কোন পণ্য কয়বার অর্ডার করা হয়েছে?
 
-SELECT * FROM products
+SELECT name As product_name, count(*)
+FROM orders
+    JOIN products ON orders.customer_id = orders.id
+GROUP BY
+    product_name
 
-SELECT * FROM orders
+-- 16. products টেবিলে group করে দেখাও, প্রতিটি ক্যাটাগরিতে মোট কয়টি প্রোডাক্ট আছে এবং তাদের গড় দাম কত?
+
+SELECT
+    category,
+    count(*) As total_product,
+    ROUND(avg(price)) AS avg_price
+FROM products
+GROUP BY
+    category
+
+-- 17.এমন ক্যাটাগরি বের করো যেখানে প্রোডাক্ট সংখ্যা ৫টির বেশি।
+
+SELECT category, count(*)
+FROM products
+GROUP BY
+    category
+HAVING
+    count(*) > 5

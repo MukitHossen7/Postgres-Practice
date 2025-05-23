@@ -475,13 +475,14 @@ WHERE
             AND students.score > 90
     );
 
-SELECT departments.name
+SELECT departments.name, students.name As student, count(*)
 FROM students
     JOIN departments ON students.department_id = departments.id
 WHERE
     students.score > 90
 GROUP BY
-    departments.name
+    departments.name,
+    students.name
 
 -- 5.Create a view to show each student’s name, department, and score.
 
@@ -509,6 +510,14 @@ FROM
     JOIN students ON course_enrollments.student_id = students.id
 
 SELECT * FROM show_enrolled_student;
+
+SELECT
+    name AS student_name,
+    course_title AS course_name,
+    enrolled_on AS enrolled_date
+FROM
+    course_enrollments
+    JOIN students ON course_enrollments.student_id = students.id
 
 -- 7.Create a function that takes a student's score and returns a grade (e.g., A, B, C, F).
 
@@ -568,7 +577,7 @@ WHERE
     s.id = input_id;
 $$;
 
-SELECT * FROM get_students_id (27)
+SELECT * FROM get_students_id (2)
 
 -- 9.Write a stored procedure to update a student's department
 

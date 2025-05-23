@@ -482,3 +482,21 @@ WHERE
     students.score > 90
 GROUP BY
     departments.name
+
+-- 5.Create a view to show each student’s name, department, and score.
+
+SELECT * FROM students
+
+SELECT * FROM departments
+
+SELECT *
+FROM students
+    JOIN departments ON students.department_id = departments.id
+WHERE
+    students.department_id = departments.id
+
+CREATE VIEW show_data AS
+SELECT students.name, students.score
+FROM students
+WHERE
+    students.department_id = departments.id

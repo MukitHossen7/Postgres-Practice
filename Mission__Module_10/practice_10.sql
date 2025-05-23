@@ -445,3 +445,7 @@ WHERE
         SELECT avg(score)
         FROM students
     )
+
+-- 2.Find students whose age is greater than the average age of all students.
+
+SELECT * FROM students WHERE age > ( SELECT avg(age) FROM students )

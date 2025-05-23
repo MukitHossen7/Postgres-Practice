@@ -435,3 +435,13 @@ SELECT * FROM departments
 SELECT * FROM students
 
 SELECT * FROM course_enrollments
+
+-- 1.Retrieve all students who scored higher than the average score
+
+SELECT *
+FROM students
+WHERE
+    score > (
+        SELECT avg(score)
+        FROM students
+    )

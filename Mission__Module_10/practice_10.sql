@@ -449,3 +449,13 @@ WHERE
 -- 2.Find students whose age is greater than the average age of all students.
 
 SELECT * FROM students WHERE age > ( SELECT avg(age) FROM students )
+
+-- 3.Get names of students who are enrolled in any course (use IN with subquery).
+
+SELECT name
+FROM students
+WHERE
+    id IN (
+        SELECT student_id
+        FROM course_enrollments
+    )

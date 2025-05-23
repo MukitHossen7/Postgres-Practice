@@ -583,3 +583,16 @@ SELECT * FROM departments
 CREATE INDEX add_index_score ON students (score)
 
 EXPLAIN ANALYZE SELECT score FROM students
+
+-- 2.Add a composite index on student_id and enrolled_on in the course_enrollments table.
+
+SELECT * FROM course_enrollments
+
+-- 0.067
+-- 0.046
+EXPLAIN
+ANALYZE
+SELECT student_id, enrolled_on
+FROM course_enrollments
+
+CREATE INDEX idx_composite ON course_enrollments (student_id, enrolled_on)

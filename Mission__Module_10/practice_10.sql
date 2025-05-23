@@ -459,3 +459,26 @@ WHERE
         SELECT student_id
         FROM course_enrollments
     )
+
+--    4. Retrieve departments with at least one student scoring above 90 (use EXISTS).
+
+SELECT * FROM students
+
+SELECT name
+FROM departments
+WHERE
+    EXISTS (
+        SELECT 1
+        FROM students
+        WHERE
+            students.department_id = departments.id
+            AND students.score > 90
+    );
+
+SELECT departments.name
+FROM students
+    JOIN departments ON students.department_id = departments.id
+WHERE
+    students.score > 90
+GROUP BY
+    departments.name

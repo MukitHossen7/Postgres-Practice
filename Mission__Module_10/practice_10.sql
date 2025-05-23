@@ -509,3 +509,45 @@ FROM
     JOIN students ON course_enrollments.student_id = students.id
 
 SELECT * FROM show_enrolled_student;
+
+-- 7.Create a function that takes a student's score and returns a grade (e.g., A, B, C, F).
+
+SELECT * FROM students
+
+CREATE FUNCTION get_grade(score NUMERIC(5,2))
+RETURNS CHAR(2)
+LANGUAGE SQL
+AS
+$$
+SELECT
+CASE
+
+ WHEN score >= 90 THEN 'A'
+ WHEN score >= 80 THEN 'B'
+ WHEN score >= 70 THEN 'C'
+ WHEN score >= 60 THEN 'D'
+ ELSE  'F'
+ END;
+$$;
+
+SELECT get_grade (91.80)
+
+CREATE OR REPLACE FUNCTION get_student2(i_score NUMERIC(5,2))
+RETURNS TABLE(name VARCHAR(100),score NUMERIC,grade CHAR(2))
+LANGUAGE SQL
+AS
+$$
+SELECT
+s.name, s.score,
+CASE
+ WHEN s.score >= 90 THEN 'A'
+ WHEN s.score >= 80 THEN 'B'
+ WHEN s.score >= 70 THEN 'C'
+ WHEN s.score >= 60 THEN 'D'
+ ELSE  'F'
+ END AS grade FROM students s WHERE s.score = i_score;
+$$;
+
+SELECT * FROM get_student2 (75.00)
+
+SELECT score FROM students

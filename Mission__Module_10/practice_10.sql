@@ -573,3 +573,13 @@ SELECT * FROM get_students_id (27)
 -- 9.Write a stored procedure to update a student's department
 
 SELECT * FROM departments
+
+-- Indexing (Based on 10-8 and 10-9)
+
+-- 1.Add an index to the score column in the students table.
+
+-- 0.034
+-- 0.022 use index
+CREATE INDEX add_index_score ON students (score)
+
+EXPLAIN ANALYZE SELECT score FROM students

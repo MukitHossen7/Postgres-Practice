@@ -551,3 +551,25 @@ $$;
 SELECT * FROM get_student2 (75.00)
 
 SELECT score FROM students
+
+-- 8.Create a function that returns the full name and department of a student by ID.
+
+SELECT * FROM students
+
+SELECT * FROM departments
+
+CREATE FUNCTION get_students_id (input_id INTEGER) RETURNS TABLE (
+    full_name VARCHAR(100),
+    department VARCHAR(10)
+)
+LANGUAGE SQL
+AS
+$$
+SELECT s.name AS full_name, d.name AS department
+FROM students s
+    JOIN departments d ON s.department_id = d.id
+WHERE
+    s.id = input_id;
+$$;
+
+SELECT * FROM get_students_id (27)

@@ -554,10 +554,6 @@ SELECT score FROM students
 
 -- 8.Create a function that returns the full name and department of a student by ID.
 
-SELECT * FROM students
-
-SELECT * FROM departments
-
 CREATE FUNCTION get_students_id (input_id INTEGER) RETURNS TABLE (
     full_name VARCHAR(100),
     department VARCHAR(10)
@@ -573,3 +569,7 @@ WHERE
 $$;
 
 SELECT * FROM get_students_id (27)
+
+-- 9.Write a stored procedure to update a student's department
+
+SELECT * FROM departments

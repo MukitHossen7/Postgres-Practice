@@ -485,18 +485,14 @@ GROUP BY
 
 -- 5.Create a view to show each student’s name, department, and score.
 
-SELECT * FROM students
-
-SELECT * FROM departments
-
-SELECT *
+CREATE OR REPLACE VIEW show_data AS
+SELECT
+    students.name AS student_name,
+    students.score,
+    departments.name AS department_name
 FROM students
-    JOIN departments ON students.department_id = departments.id
-WHERE
-    students.department_id = departments.id
+    JOIN departments ON students.department_id = departments.id;
 
-CREATE VIEW show_data AS
-SELECT students.name, students.score
-FROM students
-WHERE
-    students.department_id = departments.id
+DROP VIEW IF EXISTS show_data
+
+SELECT * FROM show_data

@@ -496,3 +496,16 @@ FROM students
 DROP VIEW IF EXISTS show_data
 
 SELECT * FROM show_data
+
+-- 6. Create a view that lists all students enrolled in any course with the enrollment date.
+
+CREATE VIEW show_enrolled_student AS
+SELECT
+    name AS student_name,
+    course_title AS course_name,
+    enrolled_on AS enrolled_date
+FROM
+    course_enrollments
+    JOIN students ON course_enrollments.student_id = students.id
+
+SELECT * FROM show_enrolled_student;

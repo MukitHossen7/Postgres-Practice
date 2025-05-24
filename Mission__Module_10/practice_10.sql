@@ -605,3 +605,18 @@ SELECT student_id, enrolled_on
 FROM course_enrollments
 
 CREATE INDEX idx_composite ON course_enrollments (student_id, enrolled_on)
+
+-- Stored Procedures (Based on 10-6)
+
+SELECT * FROM students
+
+CREATE Procedure update_department(s_id INTEGER , d_id INTEGER)
+LANGUAGE plpgsql
+AS
+$$
+BEGIN
+UPDATE students SET department_id = d_id WHERE id = s_id;
+END;
+$$;
+
+CALL update_department (10, 2);

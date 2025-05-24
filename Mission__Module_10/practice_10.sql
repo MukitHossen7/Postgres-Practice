@@ -620,3 +620,71 @@ END;
 $$;
 
 CALL update_department (10, 2);
+
+SELECT student_id FROM course_enrollments
+
+CREATE Procedure delete_student()
+LANGUAGE plpgsql
+AS
+$$
+  BEGIN
+    DELETE FROM students
+WHERE
+    id NOT IN (
+        SELECT student_id
+        FROM course_enrollments
+    );
+  END; 
+$$;
+
+CALL delete_student ()
+
+SELECT * FROM students
+
+SELECT * FROM departments;
+
+CREATE FUNCTION add_student_function()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+AS
+$$
+BEGIN
+INSERT INTO
+    add_insert_student (
+        course_title,
+        enrolled_on,
+        student_id
+    )VALUES( NEW.course_title, NEW.enrolled_on ,NEW.student_id);
+    RETURN NEW;
+    END;
+$$;
+
+CREATE TRIGGER add_student_trigger
+    AFTER INSERT ON course_enrollments 
+    FOR EACH ROW EXECUTE FUNCTION add_student_function();
+
+CREATE TABLE add_insert_student (
+    id SERIAL PRIMARY KEY,
+    student_id INT NOT NULL,
+    course_title VARCHAR(100) NOT NULL,
+    enrolled_on DATE NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES students (id)
+)
+
+INSERT INTO
+    course_enrollments (
+        id,
+        student_id,
+        course_title,
+        enrolled_on
+    )
+VALUES (
+        73,
+        5,
+        'C++ Developer',
+        '2025-05-22'
+    )
+
+SELECT * FROM course_enrollments;
+
+SELECT * FROM add_insert_student

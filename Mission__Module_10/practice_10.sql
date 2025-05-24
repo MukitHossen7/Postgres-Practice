@@ -8,6 +8,8 @@ CREATE TABLE students (
     department_id INT REFERENCES departments (id)
 )
 
+ALTER TABLE students ALTER COLUMN score DROP NOT NULL
+
 CREATE TABLE departments (
     id SERIAL PRIMARY KEY,
     name VARCHAR(10) NOT NULL
@@ -639,8 +641,6 @@ $$;
 
 CALL delete_student ()
 
-SELECT * FROM students
-
 SELECT * FROM departments;
 
 CREATE FUNCTION add_student_function()
@@ -688,3 +688,5 @@ VALUES (
 SELECT * FROM course_enrollments;
 
 SELECT * FROM add_insert_student
+
+SELECT * FROM students

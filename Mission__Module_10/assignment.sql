@@ -120,6 +120,8 @@ WHERE
         FROM discovery_date
     ) < 1800;
 
+SELECT * FROM species
+
 -- problem - 8
 SELECT
     sighting_id,

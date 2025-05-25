@@ -15,7 +15,7 @@ CREATE TABLE species (
 
 CREATE TABLE sightings (
     sighting_id SERIAL PRIMARY KEY,
-    ranger_id INT REFERENCES rangers (ranger_id),
+    ranger_id INT REFERENCES rangers (ranger_id) ON DELETE CASCADE,
     species_id INT REFERENCES species (species_id),
     sighting_time TIMESTAMP NOT NULL,
     location VARCHAR(100) NOT NULL,
@@ -23,13 +23,15 @@ CREATE TABLE sightings (
 );
 
 INSERT INTO
-    rangers (name, region)
+    rangers (ranger_id, name, region)
 VALUES (
+        1,
         'Alice Green',
         'Northern Hills'
     ),
-    ('Bob White', 'River Delta'),
+    (2, 'Bob White', 'River Delta'),
     (
+        3,
         'Carol King',
         'Mountain Range'
     );
@@ -68,6 +70,7 @@ VALUES (
 
 INSERT INTO
     sightings (
+        sighting_id,
         species_id,
         ranger_id,
         location,
@@ -77,11 +80,13 @@ INSERT INTO
 VALUES (
         1,
         1,
+        1,
         'Peak Ridge',
         '2024-05-10 07:45:00',
         'Camera trap image captured'
     ),
     (
+        2,
         2,
         2,
         'Bankwood Area',
@@ -91,11 +96,13 @@ VALUES (
     (
         3,
         3,
+        3,
         'Bamboo Grove East',
         '2024-05-15 09:10:00',
         'Feeding observed'
     ),
     (
+        4,
         1,
         2,
         'Snowfall Pass',
@@ -132,12 +139,23 @@ SELECT
     END AS time_of_day
 FROM sightings;
 
-SELECT * FROM species;
+INSERT INTO
+    rangers (ranger_id, name, region)
+VALUES (
+        4,
+        'Derek Fox',
+        'Coastal Plains'
+    );
 
-SELECT * FROM rangers;
+-- problem - 9
+DELETE FROM rangers
+WHERE
+    ranger_id IN (
+        SELECT rangers.ranger_id
+        FROM rangers
+            LEFT JOIN sightings ON rangers.ranger_id = sightings.ranger_id
+        WHERE
+            sightings.ranger_id IS NULL
+    );
 
-SELECT EXTRACT(
-        HOUR
-        FROM sighting_time
-    )
-FROM sightings;
+SELECT * FROM rangers

@@ -153,3 +153,25 @@ SELECT concat_ws(
 FROM employees
 WHERE
     emp_id = 1;
+
+SELECT * FROM employees
+
+SELECT DISTINCT (dept) FROM employees;
+
+SELECT min(salary) FROM employees
+
+SELECT *
+FROM employees
+WHERE
+    salary IN (
+        SELECT min(salary)
+        FROM employees
+    )
+
+SELECT *
+FROM employees
+WHERE
+    salary IN (
+        SELECT max(salary)
+        FROM employees
+    )

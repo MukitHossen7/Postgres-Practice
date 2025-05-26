@@ -139,3 +139,17 @@ SELECT * FROM employees
 SELECT concat(fname, ' ', lname) FROM employees
 
 SELECT *, REPLACE(dept, 'IT', 'TECH') FROM employees
+
+SELECT concat_ws(
+        ':', emp_id, fname, lname, dept
+    )
+FROM employees
+WHERE
+    emp_id = 1;
+
+SELECT concat_ws(
+        ':', emp_id, concat(fname, ' ', lname), dept, salary
+    )
+FROM employees
+WHERE
+    emp_id = 1;

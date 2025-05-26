@@ -132,4 +132,4 @@ SELECT max(salary) FROM employees;
 
 SELECT avg(salary) FROM employees;
 
-SELECT dept, count(*) FROM employees GROUP BY dept;
+SELECT dept, count(*), sum(salary) FROM employees GROUP BY dept

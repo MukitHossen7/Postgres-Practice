@@ -137,3 +137,5 @@ SELECT dept, count(*), sum(salary) FROM employees GROUP BY dept
 SELECT * FROM employees
 
 SELECT concat(fname, ' ', lname) FROM employees
+
+SELECT *, REPLACE(dept, 'IT', 'TECH') FROM employees

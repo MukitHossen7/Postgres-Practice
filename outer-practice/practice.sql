@@ -121,3 +121,7 @@ SELECT * FROM employees WHERE salary >= 50000;
 SELECT * FROM employees WHERE dept = 'HR' OR dept = 'Finance';
 
 SELECT * FROM employees WHERE dept = 'IT' AND salary > 50000;
+
+SELECT DISTINCT (dept) FROM employees;
+
+SELECT dept FROM employees;

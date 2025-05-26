@@ -181,3 +181,22 @@ SELECT * FROM employees LIMIT 3
 SELECT * FROM employees WHERE fname LIKE 'A%'
 
 SELECT * FROM employees WHERE LENGTH(lname) = 4
+
+SELECT count(*) FROM employees;
+
+SELECT * FROM employees;
+
+SELECT dept, count(*) FROM employees GROUP BY dept
+
+SELECT min(salary) FROM employees;
+
+SELECT max(salary) FROM employees;
+
+SELECT dept, sum(salary)
+FROM employees
+WHERE
+    dept = 'Finance'
+GROUP BY
+    dept
+
+SELECT dept, avg(salary) FROM employees GROUP BY dept

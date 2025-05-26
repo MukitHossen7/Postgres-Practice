@@ -113,3 +113,5 @@ VALUES (
     );
 
 SELECT * FROM employees;
+
+SELECT * FROM employees WHERE dept = 'HR'

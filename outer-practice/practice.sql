@@ -125,3 +125,11 @@ SELECT * FROM employees WHERE dept = 'IT' AND salary > 50000;
 SELECT DISTINCT (dept) FROM employees ORDER BY dept DESC;
 
 SELECT dept FROM employees;
+
+SELECT count(*) FROM employees;
+
+SELECT max(salary) FROM employees;
+
+SELECT avg(salary) FROM employees;
+
+SELECT dept, count(*) FROM employees GROUP BY dept;

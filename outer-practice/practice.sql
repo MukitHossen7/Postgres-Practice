@@ -175,3 +175,9 @@ WHERE
         SELECT max(salary)
         FROM employees
     )
+
+SELECT * FROM employees LIMIT 3
+
+SELECT * FROM employees WHERE fname LIKE 'A%'
+
+SELECT * FROM employees WHERE LENGTH(lname) = 4

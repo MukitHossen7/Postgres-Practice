@@ -5,6 +5,8 @@ CREATE TABLE employees (
     lname VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
     dept VARCHAR(50) NOT NULL,
-    salary INTEGER NOT NULL,
+    salary DECIMAL(10, 2) NOT NULL,
     hire_date DATE
 )
+
+-- DROP TABLE employees;

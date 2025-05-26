@@ -133,3 +133,7 @@ SELECT max(salary) FROM employees;
 SELECT avg(salary) FROM employees;
 
 SELECT dept, count(*), sum(salary) FROM employees GROUP BY dept
+
+SELECT * FROM employees
+
+SELECT concat(fname, ' ', lname) FROM employees

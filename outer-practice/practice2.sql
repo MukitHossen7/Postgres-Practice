@@ -34,3 +34,5 @@ SELECT * FROM customer;
 SELECT * FROM orders;
 
 SELECT * FROM customer CROSS JOIN orders
+
+CREATE DATABASE institute;

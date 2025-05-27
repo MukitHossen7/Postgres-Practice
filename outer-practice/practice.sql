@@ -1,4 +1,4 @@
--- Active: 1747415867666@@127.0.0.1@5432@bankdb
+-- Active: 1747415867666@@127.0.0.1@5432@conservation_db
 CREATE TABLE employees (
     emp_id SERIAL PRIMARY KEY,
     fname VARCHAR(50) NOT NULL,
@@ -252,3 +252,5 @@ SELECT
 FROM employees
 GROUP BY
     salary_category;
+
+DROP DATABASE bankdb;

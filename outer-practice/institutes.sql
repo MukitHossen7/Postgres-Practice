@@ -42,3 +42,15 @@ VALUES (1, 1),
     (1, 4),
     (5, 5),
     (2, 5);
+
+SELECT * FROM students
+
+SELECT * FROM courses
+
+SELECT * FROM enrollments;
+
+SELECT s.name, c.name, c.fee, e.enrollment_date
+FROM
+    enrollments e
+    JOIN students s ON e.s_id = s.s_id
+    JOIN courses c ON e.c_id = c.c_id

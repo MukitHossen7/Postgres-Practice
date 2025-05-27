@@ -238,3 +238,6 @@ SELECT
         ELSE 'Low Salary'
     END AS salary_category
 FROM employees;
+
+SELECT fname, salary, ROUND(((salary * 10) / 100)) AS bonus
+FROM employees

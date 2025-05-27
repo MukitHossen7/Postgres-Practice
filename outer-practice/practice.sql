@@ -224,3 +224,16 @@ ALTER TABLE employees RENAME COLUMN dept TO department
 ALTER TABLE bank_employees RENAME TO employees;
 
 ALTER TABLE employees ALTER COLUMN fname TYPE VARCHAR(100);
+
+SELECT * FROM employees;
+
+SELECT
+    concat_ws(' ', fname, lname) AS name,
+    email,
+    department,
+    salary,
+    CASE
+        WHEN salary >= 50000 THEN 'High Salary'
+        ELSE 'Low Salary'
+    END AS salary_category
+FROM employees;

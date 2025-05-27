@@ -68,7 +68,13 @@ SELECT * FROM orders;
 
 -- cust_name ord_date , p_name, price, quantity,
 
-SELECT customers.cust_name, ord_date, products.p_name, products.price, quantity
+SELECT
+    customers.cust_name,
+    ord_date,
+    products.p_name,
+    products.price,
+    quantity,
+    (products.price * quantity) AS total_price
 FROM
     order_items
     JOIN orders ON order_items.ord_id = orders.ord_id

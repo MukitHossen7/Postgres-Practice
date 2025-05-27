@@ -57,3 +57,11 @@ VALUES (1, 1, 1), -- Raju ordered 1 Laptop
     (3, 2, 1), -- Paul ordered 1 Mouse
     (3, 4, 5), -- Paul ordered 5 Cables
     (4, 3, 1);
+
+SELECT * FROM products
+
+SELECT * FROM order_items
+
+SELECT * FROM customers
+
+SELECT * FROM orders

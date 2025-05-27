@@ -240,4 +240,15 @@ SELECT
 FROM employees;
 
 SELECT fname, salary, ROUND(((salary * 10) / 100)) AS bonus
+FROM employees;
+
+SELECT
+    CASE
+        WHEN salary >= 50000 THEN 'High Salary'
+        WHEN salary BETWEEN 47000 AND 50000  THEN 'Medium Salary'
+        ELSE 'Low Salary'
+    END AS salary_category,
+    count(*) AS total_employees
 FROM employees
+GROUP BY
+    salary_category;

@@ -62,3 +62,5 @@ FROM
     JOIN courses c ON e.c_id = c.c_id
 GROUP BY
     s.name
+
+DROP DATABASE storedb;

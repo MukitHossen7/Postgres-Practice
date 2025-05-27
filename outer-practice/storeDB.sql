@@ -64,4 +64,13 @@ SELECT * FROM order_items
 
 SELECT * FROM customers
 
-SELECT * FROM orders
+SELECT * FROM orders;
+
+-- cust_name ord_date , p_name, price, quantity,
+
+SELECT customers.cust_name, ord_date, products.p_name, products.price, quantity
+FROM
+    order_items
+    JOIN orders ON order_items.ord_id = orders.ord_id
+    JOIN products ON order_items.p_id = products.p_id
+    JOIN customers ON orders.cust_id = customers.cust_id

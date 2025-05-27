@@ -234,6 +234,7 @@ SELECT
     salary,
     CASE
         WHEN salary >= 50000 THEN 'High Salary'
+        WHEN salary BETWEEN 40000 AND 50000  THEN 'Medium Salary'
         ELSE 'Low Salary'
     END AS salary_category
 FROM employees;

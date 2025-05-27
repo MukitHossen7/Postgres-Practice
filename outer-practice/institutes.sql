@@ -54,3 +54,11 @@ FROM
     enrollments e
     JOIN students s ON e.s_id = s.s_id
     JOIN courses c ON e.c_id = c.c_id
+
+SELECT s.name, count(*) AS total_courses, sum(c.fee) AS total_fee
+FROM
+    enrollments e
+    JOIN students s ON e.s_id = s.s_id
+    JOIN courses c ON e.c_id = c.c_id
+GROUP BY
+    s.name

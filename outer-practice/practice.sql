@@ -212,3 +212,9 @@ WHERE
 SELECT * FROM employees ORDER BY salary DESC LIMIT 1
 
 SELECT * FROM employees ORDER BY salary ASC LIMIT 1
+
+SELECT * FROM employees;
+
+ALTER TABLE employees ADD COLUMN age INT DEFAULT 25
+
+ALTER TABLE employees DROP COLUMN age

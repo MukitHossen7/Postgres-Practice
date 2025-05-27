@@ -32,3 +32,5 @@ VALUES ('2024-01-01', 1, 250.00),
 SELECT * FROM customer;
 
 SELECT * FROM orders;
+
+SELECT * FROM customer CROSS JOIN orders

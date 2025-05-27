@@ -80,3 +80,19 @@ FROM
     JOIN orders ON order_items.ord_id = orders.ord_id
     JOIN products ON order_items.p_id = products.p_id
     JOIN customers ON orders.cust_id = customers.cust_id
+
+CREATE VIEW billing_info AS
+SELECT
+    customers.cust_name,
+    ord_date,
+    products.p_name,
+    products.price,
+    quantity,
+    (products.price * quantity) AS total_price
+FROM
+    order_items
+    JOIN orders ON order_items.ord_id = orders.ord_id
+    JOIN products ON order_items.p_id = products.p_id
+    JOIN customers ON orders.cust_id = customers.cust_id
+
+SELECT * FROM billing_info;

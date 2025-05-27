@@ -200,3 +200,15 @@ GROUP BY
     dept
 
 SELECT dept, avg(salary) FROM employees GROUP BY dept
+
+SELECT *
+FROM employees
+WHERE
+    salary IN (
+        SELECT max(salary)
+        FROM employees
+    )
+
+SELECT * FROM employees ORDER BY salary DESC LIMIT 1
+
+SELECT * FROM employees ORDER BY salary ASC LIMIT 1

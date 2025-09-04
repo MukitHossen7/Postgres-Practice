@@ -4,10 +4,11 @@
 -- DROP DATABASE demoDB WITH(FORCE)
 
 CREATE TABLE students (
-    id SERIAL,
-    name VARCHAR(50),
-    age INT,
-    isActive BOOLEAN,
+    id UUID PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    age SMALLINT CHECK (age >= 18),
+    isActive BOOLEAN DEFAULT true,
     dob DATE
 )
 

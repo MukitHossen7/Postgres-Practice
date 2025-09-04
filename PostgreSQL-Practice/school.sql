@@ -4,12 +4,30 @@
 -- DROP DATABASE demoDB WITH(FORCE)
 
 CREATE TABLE students (
-    id UUID PRIMARY KEY,
+    id SERIAL,
     name VARCHAR(50) NOT NULL,
-    email VARCHAR(100) UNIQUE,
-    age SMALLINT CHECK (age >= 18),
+    email VARCHAR(100),
+    age SMALLINT,
     isActive BOOLEAN DEFAULT true,
-    dob DATE
+    PRIMARY KEY (id),
+    UNIQUE (email),
+    CHECK (age >= 18)
 )
 
 DROP TABLE if EXISTS students
+
+INSERT INTO
+    students (name, email, age)
+VALUES ('Rafi', 'rafi@gmail.com', 24),
+    (
+        'Nusrat',
+        'nusrat@gmail.com',
+        21
+    ),
+    (
+        'Sabbir',
+        'sabbir@gmail.com',
+        23
+    );
+
+SELECT * FROM students

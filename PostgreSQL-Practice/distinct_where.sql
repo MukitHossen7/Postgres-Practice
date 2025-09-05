@@ -9,3 +9,13 @@ WHERE
     AND country = 'USA'
 
 SELECT first_name, age, country, grade FROM students WHERE age >= 22
+
+SELECT
+    first_name,
+    age,
+    country,
+    grade,
+    blood_group
+FROM students
+WHERE
+    blood_group = 'A+'

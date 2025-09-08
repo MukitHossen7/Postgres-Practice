@@ -1,0 +1,17 @@
+SELECT * FROM students
+
+SELECT * FROM students LIMIT 5 OFFSET 5 * 0
+
+SELECT * FROM students LIMIT 5 OFFSET 5 * 1
+
+SELECT * FROM students LIMIT 5 OFFSET 5 * 2
+
+SELECT * FROM students WHERE age >= 21 LIMIT 5 OFFSET 5 * 0
+
+SELECT * FROM students WHERE age >= 21 LIMIT 5 OFFSET 5 * 1
+
+SELECT * FROM students WHERE age >= 21 LIMIT 5 OFFSET 5 * 3
+
+SELECT * FROM students WHERE age >= 21 LIMIT 5 OFFSET 5 * 4
+
+SELECT * FROM students WHERE age >= 21 LIMIT 5 OFFSET 5 * 5

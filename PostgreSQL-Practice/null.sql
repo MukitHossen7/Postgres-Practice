@@ -33,3 +33,5 @@ VALUES (
     );
 
 SELECT * FROM students WHERE email IS NULL
+
+SELECT * FROM students WHERE email IS NOT NULL

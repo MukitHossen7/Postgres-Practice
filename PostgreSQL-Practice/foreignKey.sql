@@ -48,8 +48,30 @@ VALUES ('How to learn SQL fast', 1),
         3
     );
 
-ddd
-
 SELECT * FROM users
 
 SELECT * FROM posts
+
+INSERT INTO users (user_name) VALUES ('Sagor');
+
+ALTER TABLE posts ALTER COLUMN user_id DROP NOT NULL
+
+INSERT INTO posts (title) VALUES ('I am a full stack developer');
+
+-- JOIN / INNER JOIN
+SELECT title, user_name
+FROM posts as p
+    JOIN users as u ON p.user_id = u.id
+
+-- LEFT JOIN
+SELECT * FROM posts as p LEFT JOIN users as u ON p.user_id = u.id
+
+SELECT * FROM users as u LEFT JOIN posts as p ON p.user_id = u.id
+
+-- RIGHT JOIN
+SELECT title, user_name
+FROM posts as p
+    RIGHT JOIN users as u ON p.user_id = u.id
+
+-- FULL JOIN
+SELECT * FROM posts as p FULL JOIN users as u ON p.user_id = u.id

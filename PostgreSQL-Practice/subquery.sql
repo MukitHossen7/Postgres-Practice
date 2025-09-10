@@ -58,4 +58,12 @@ WHERE
     )
 
 -- 4.Name of the employee who gets the highest salary in HR department
-SELECT * FROM employee
+SELECT *
+FROM employee
+WHERE
+    salary = (
+        SELECT MAX(salary)
+        FROM employee
+        WHERE
+            department = 'HR'
+    )

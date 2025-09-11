@@ -20,11 +20,24 @@ async function others() {
   // console.log(createManyUsers);
 
   const getAllUsers = await prisma.user.findMany({
+    where: {
+      name: {
+        contains: "bo",
+        mode: "insensitive",
+      },
+    },
     orderBy: {
       name: "asc",
     },
   });
   console.log(getAllUsers);
+
+  // const getAllUsers = await prisma.user.findMany({
+  //   orderBy: {
+  //     name: "asc",
+  //   },
+  // });
+  // console.log(getAllUsers);
 }
 
 others();

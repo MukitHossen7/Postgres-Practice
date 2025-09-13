@@ -1,6 +1,7 @@
 import compression from "compression";
 import cors from "cors";
 import express from "express";
+import routes from "./routes/routes";
 
 const app = express();
 
@@ -15,6 +16,9 @@ app.use(
     credentials: true,
   })
 );
+
+//routes
+app.use("/api/v1", routes);
 
 // Default route for testing
 app.get("/", (_req, res) => {

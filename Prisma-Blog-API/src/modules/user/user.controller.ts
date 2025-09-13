@@ -41,8 +41,38 @@ const getUserById = async (req: Request, res: Response) => {
   }
 };
 
+const deleteUserById = async (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id);
+    const user = await userService.deleteUserById(id);
+    res.status(200).json({
+      success: true,
+      message: "User delete successfully",
+      data: user,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const updateUserById = async (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id);
+    const user = await userService.updateUserById(id, req.body);
+    res.status(200).json({
+      success: true,
+      message: "User Update successfully",
+      data: user,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const userController = {
   createUser,
   getAllUsers,
   getUserById,
+  deleteUserById,
+  updateUserById,
 };

@@ -17,9 +17,51 @@ const createPost = async (req: Request, res: Response) => {
 const getAllPost = async (req: Request, res: Response) => {
   try {
     const post = await postService.getAllPost();
-    res.status(201).json({
+    res.status(200).json({
       success: true,
       message: "All post retrieved successfully",
+      data: post,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getPostById = async (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id);
+    const post = await postService.getPostById(id);
+    res.status(200).json({
+      success: true,
+      message: "Single post retrieved successfully",
+      data: post,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const deletePostById = async (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id);
+    const post = await postService.deletePostById(id);
+    res.status(200).json({
+      success: true,
+      message: "Single post delete successfully",
+      data: post,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const updatePostById = async (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id);
+    const post = await postService.updatePostById(id, req.body);
+    res.status(200).json({
+      success: true,
+      message: "Single post update successfully",
       data: post,
     });
   } catch (error) {
@@ -30,4 +72,7 @@ const getAllPost = async (req: Request, res: Response) => {
 export const postController = {
   createPost,
   getAllPost,
+  getPostById,
+  deletePostById,
+  updatePostById,
 };

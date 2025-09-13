@@ -21,6 +21,7 @@ const getAllUsers = async () => {
       isVerified: true,
       createdAt: true,
       updatedAt: true,
+      Post: true,
     },
     orderBy: {
       createdAt: "desc",

@@ -17,8 +17,11 @@ const createPost = async (payload: Prisma.PostCreateInput): Promise<Post> => {
   return post;
 };
 
-const getAllPost = async () => {
+const getAllPost = async ({ page, limit }: { page: number; limit: number }) => {
+  const skip = (page - 1) * limit;
   const post = await prisma.post.findMany({
+    skip: skip,
+    take: limit,
     orderBy: {
       createdAt: "desc",
     },

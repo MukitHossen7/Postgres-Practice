@@ -16,7 +16,9 @@ const createPost = async (req: Request, res: Response) => {
 
 const getAllPost = async (req: Request, res: Response) => {
   try {
-    const post = await postService.getAllPost();
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 5;
+    const post = await postService.getAllPost({ page, limit });
     res.status(200).json({
       success: true,
       message: "All post retrieved successfully",

@@ -19,7 +19,13 @@ const getAllPost = async (req: Request, res: Response) => {
     const page = Number(req.query.page) || 1;
     const limit = Number(req.query.limit) || 5;
     const search = (req.query.search as string) || "";
-    const post = await postService.getAllPost({ page, limit, search });
+    const filter = req.query ? req.query.isFeatured === "true" : undefined;
+    const post = await postService.getAllPost({
+      page,
+      limit,
+      search,
+      filter,
+    });
     res.status(200).json({
       success: true,
       message: "All post retrieved successfully",

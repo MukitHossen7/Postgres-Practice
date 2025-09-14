@@ -21,29 +21,38 @@ const getAllPost = async ({
   page,
   limit,
   search,
+  filter,
 }: {
   page: number;
   limit: number;
-  search: string;
+  search?: string;
+  filter?: boolean;
 }) => {
   const skip = (page - 1) * limit;
   const post = await prisma.post.findMany({
     skip: skip,
     take: limit,
     where: {
-      OR: [
-        {
-          title: {
-            contains: search,
-            mode: "insensitive",
-          },
-        },
-        {
-          content: {
-            contains: search,
-            mode: "insensitive",
-          },
-        },
+      AND: [
+        search
+          ? {
+              OR: [
+                {
+                  title: {
+                    contains: search,
+                    mode: "insensitive",
+                  },
+                },
+                {
+                  content: {
+                    contains: search,
+                    mode: "insensitive",
+                  },
+                },
+              ],
+            }
+          : {},
+        filter !== undefined ? { isFeatured: filter } : {},
       ],
     },
     orderBy: {

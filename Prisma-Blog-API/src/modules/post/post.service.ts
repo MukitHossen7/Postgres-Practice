@@ -22,11 +22,13 @@ const getAllPost = async ({
   limit,
   search,
   filter,
+  tags,
 }: {
   page: number;
   limit: number;
   search?: string;
   filter?: boolean;
+  tags?: string[];
 }) => {
   const skip = (page - 1) * limit;
   const post = await prisma.post.findMany({
@@ -53,6 +55,7 @@ const getAllPost = async ({
             }
           : {},
         filter !== undefined ? { isFeatured: filter } : {},
+        tags && tags.length > 0 ? { tags: { hasSome: tags } } : {},
       ],
     },
     orderBy: {

@@ -23,18 +23,22 @@ const getAllPost = async (req: Request, res: Response) => {
       ? req.query.isFeatured === "true"
       : undefined;
     const tags = req.query.tags ? (req.query.tags as string).split(",") : [];
-
+    const sortBy = (req.query.sortBy as string) || "createdAt";
+    const sort = (req.query.sort as string) || "desc";
     const post = await postService.getAllPost({
       page,
       limit,
       search,
       filter,
       tags,
+      sortBy,
+      sort,
     });
     res.status(200).json({
       success: true,
       message: "All post retrieved successfully",
-      data: post,
+      meta: post.metaData,
+      data: post.data,
     });
   } catch (error) {
     console.log(error);

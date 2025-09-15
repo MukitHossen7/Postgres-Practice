@@ -23,46 +23,61 @@ const getAllPost = async ({
   search,
   filter,
   tags,
+  sortBy,
+  sort,
 }: {
   page: number;
   limit: number;
   search?: string;
   filter?: boolean;
   tags?: string[];
+  sortBy?: string;
+  sort?: string;
 }) => {
   const skip = (page - 1) * limit;
+  const where: any = {
+    AND: [
+      search
+        ? {
+            OR: [
+              {
+                title: {
+                  contains: search,
+                  mode: "insensitive",
+                },
+              },
+              {
+                content: {
+                  contains: search,
+                  mode: "insensitive",
+                },
+              },
+            ],
+          }
+        : {},
+      filter !== undefined ? { isFeatured: filter } : {},
+      tags && tags.length > 0 ? { tags: { hasSome: tags } } : {},
+    ],
+  };
   const post = await prisma.post.findMany({
     skip: skip,
     take: limit,
-    where: {
-      AND: [
-        search
-          ? {
-              OR: [
-                {
-                  title: {
-                    contains: search,
-                    mode: "insensitive",
-                  },
-                },
-                {
-                  content: {
-                    contains: search,
-                    mode: "insensitive",
-                  },
-                },
-              ],
-            }
-          : {},
-        filter !== undefined ? { isFeatured: filter } : {},
-        tags && tags.length > 0 ? { tags: { hasSome: tags } } : {},
-      ],
-    },
-    orderBy: {
-      createdAt: "desc",
-    },
+    where: where,
+    orderBy: sortBy
+      ? { [sortBy]: sort === "asc" ? "asc" : "desc" }
+      : { createdAt: "desc" },
   });
-  return post;
+  const totalRecords = await prisma.post.count({ where });
+  const totalPages = Math.ceil(totalRecords / limit);
+  return {
+    metaData: {
+      page: page,
+      limit: limit,
+      total: totalRecords,
+      totalPages: totalPages,
+    },
+    data: post,
+  };
 };
 
 const getPostById = async (id: number) => {

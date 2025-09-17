@@ -32,6 +32,17 @@ const getBlogStat = async () => {
         views: "desc",
       },
     });
+
+    const lastWeek = new Date();
+    lastWeek.setDate(lastWeek.getDate() - 3);
+
+    const lastWeekPostCount = await tx.post.count({
+      where: {
+        createdAt: {
+          gte: lastWeek,
+        },
+      },
+    });
     return {
       totalCount: blogStats._count ?? 0,
       totalViews: blogStats._sum.views ?? 0,
@@ -40,6 +51,7 @@ const getBlogStat = async () => {
       minViews: blogStats._min.views ?? 0,
       featuresCount: isFeatured,
       topFeatured: topFeatured,
+      lastWeekPostCount: lastWeekPostCount,
     };
   });
 };

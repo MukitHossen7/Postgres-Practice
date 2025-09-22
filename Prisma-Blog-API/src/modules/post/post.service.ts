@@ -66,6 +66,15 @@ const getAllPost = async ({
     orderBy: sortBy
       ? { [sortBy]: sort === "asc" ? "asc" : "desc" }
       : { createdAt: "desc" },
+    include: {
+      author: {
+        select: {
+          name: true,
+          email: true,
+          picture: true,
+        },
+      },
+    },
   });
   const totalRecords = await prisma.post.count({ where });
   const totalPages = Math.ceil(totalRecords / limit);

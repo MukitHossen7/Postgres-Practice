@@ -17,6 +17,8 @@ const getAllUsers = async () => {
       role: true,
       phone: true,
       picture: true,
+      provider: true,
+      providerId: true,
       status: true,
       isVerified: true,
       createdAt: true,
